@@ -19,7 +19,7 @@ const baseStyles = StyleSheet.create({
   thumbnail: {
     width: 168,
     height: 252,
-    resizeMode:'stretch'
+    backgroundColor:'gray',
   },
   title_container: {
     justifyContent: 'center',

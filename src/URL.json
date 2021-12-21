@@ -1,4 +1,6 @@
 {
   "BASE_URL": "https://gateway.marvel.com/v1/public/",
-  "AUTH": "?ts=1&limit=100&apikey=6a3ac4ee649fa8f44ed2beb0990b8e5e&hash=b1092a87a9512ddc94b1093992505c3a"
+  "AUTH": "?ts=1&limit=100&nameStartsWith=spider&apikey=6a3ac4ee649fa8f44ed2beb0990b8e5e&hash=b1092a87a9512ddc94b1093992505c3a",
+  "LIMIT": "?ts=1&limit=100&",
+  "API_KEY": "&apikey=6a3ac4ee649fa8f44ed2beb0990b8e5e&hash=b1092a87a9512ddc94b1093992505c3a"
 }

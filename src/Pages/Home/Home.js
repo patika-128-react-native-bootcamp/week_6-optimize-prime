@@ -10,35 +10,16 @@ import Search from '../../utils/Search';
 const Home = () => {
   const navigation = useNavigation();
   const theme = useSelector(state => state.theme);
-  // const theme = Appearance.getColorScheme();
-  // const dispatch = useDispatch();
-
-  // Appearance.addChangeListener(scheme => {
-  //   dispatch({type: 'CHANGE_APP_THEME', payload: {theme: scheme.colorScheme}});
-  // });
 
   const [comicData, setComicData] = useState({data: 'data'});
   const {loading, error, data} = useFetch('comics');
   useAppStarted();
   useEffect(() => {
-    // dispatch({type: 'CHANGE_APP_THEME', payload: {theme: theme}});
     if (data !== null) {
       setComicData(data);
     }
   }, [data]);
 
-  // const handleSearch = text => {
-  //   if (text !== null || text !== '') {
-  //     const filteredList = data.filter(comic => {
-  //       const searchText = text.toLowerCase();
-  //       const currentTitle = comic.title.toLowerCase();
-  //       return currentTitle.indexOf(searchText) > -1;
-  //     });
-  //     setComicData(filteredList);
-  //     return;
-  //   }
-  //   setComicData(data);
-  // };
   const getTextFromSearchInput = text => {
     setComicData(Search(data, text, 'title'));
   };

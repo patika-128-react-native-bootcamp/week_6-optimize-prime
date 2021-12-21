@@ -2,12 +2,22 @@ import React, {useEffect, useState} from 'react';
 import useFetch from '../../hooks/useFetch/useFetch';
 import CharactersLayout from './CharactersLayout';
 import {Text} from 'react-native';
-import Search from '../../utils/Search';
+import axios from 'axios';
 
 const Characters = props => {
-  const {loading, error, data} = useFetch('characters');
+  const [searchText, setSearchText] = useState('cap');
   const [charactersData, setCharactersData] = useState({data: 'data'});
+  const fetchData = async () => {
+    try {
+      const response = await axios.get(
+        `https://gateway.marvel.com/v1/public/characters?ts=1&limit=100&nameStartsWith=${searchText}&apikey=6a3ac4ee649fa8f44ed2beb0990b8e5e&hash=b1092a87a9512ddc94b1093992505c3a`,
+      );
+      setCharactersData(response.data.data.results);
+    } catch (error) {}
+  };
+  let temporaryText = '';
 
+  const {loading, error, data} = useFetch('characters', '');
   useEffect(() => {
     if (data !== null) {
       setCharactersData(data);
@@ -15,21 +25,15 @@ const Characters = props => {
     }
   }, [data]);
 
-  // const handleSearch = text => {
-  //   if (text !== null || text !== '') {
-  //     const filteredList = data.filter(character => {
-  //       const searchText = text.toLowerCase();
-  //       const currentTitle = character.name.toLowerCase();
-  //       return currentTitle.indexOf(searchText) > -1;
-  //     });
-  //     setCharactersData(filteredList);
-  //     return;
-  //   }
-  //   setCharactersData(data);
-  // };
   const getTextFromSearchInput = text => {
-    setCharactersData(Search(data, text,'name'));
+    temporaryText = text;
   };
+  const handleSearch = () => {
+    setSearchText(temporaryText);
+  };
+  useEffect(() => {
+    fetchData(searchText);
+  }, [searchText]);
 
   if (loading) {
     return <Text>Loading</Text>;
@@ -42,6 +46,7 @@ const Characters = props => {
     <CharactersLayout
       charactersData={charactersData}
       setText={getTextFromSearchInput}
+      onSearch={handleSearch}
     />
   );
 };

@@ -1,9 +1,9 @@
 import React from 'react';
-import {View, Text, FlatList, TextInput} from 'react-native';
+import {View, Text, FlatList, TextInput,Button} from 'react-native';
 import ThumbnailCard from '../../../components/ThumbnailCard';
 import styles from './CharactersLayout.style';
 
-const CharactersLayout = ({charactersData, setText}) => {
+const CharactersLayout = ({charactersData, setText,onSearch}) => {
   const renderCharacters = ({item}) => {
     return <ThumbnailCard thumbnail={item.thumbnail.path} title={item.name} />;
   };
@@ -13,6 +13,7 @@ const CharactersLayout = ({charactersData, setText}) => {
         onChangeText={setText}
         style={{backgroundColor: '#bdbdbd', margin: 5}}
       />
+      <Button title='Search' onPress={onSearch}/>
       <FlatList
         numColumns={2}
         data={charactersData}
