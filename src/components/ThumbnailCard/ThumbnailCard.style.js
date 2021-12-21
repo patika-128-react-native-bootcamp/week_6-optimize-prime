@@ -11,13 +11,15 @@ const baseStyles = StyleSheet.create({
     width: width * 0.5,
   },
   inner_container: {
-    margin: 5,
+    width:168,
+    margin: spacing.tiny,
     borderWidth: 1,
     alignItems: 'center',
   },
   thumbnail: {
     width: 168,
     height: 252,
+    resizeMode:'stretch'
   },
   title_container: {
     justifyContent: 'center',

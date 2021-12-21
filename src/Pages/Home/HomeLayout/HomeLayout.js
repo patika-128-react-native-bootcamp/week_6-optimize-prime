@@ -3,7 +3,7 @@ import {View, FlatList, TextInput} from 'react-native';
 import ThumbnailCard from '../../../components/ThumbnailCard';
 import styles from './HomeLayout.style';
 
-const HomeLayout = ({comicData, setText, onItemPress}) => {
+const HomeLayout = ({comicData, setText, onItemPress,theme}) => {
   const renderComics = ({item}) => {
     return (
       <ThumbnailCard
