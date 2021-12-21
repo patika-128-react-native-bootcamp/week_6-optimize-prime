@@ -1,13 +1,13 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, Text } from 'react-native';
 
 import DetailLayout from './DetailLayout'
 
-const Detail = () => {
+const Detail = ({ route, navigation }) => {
+  const { comicData } = route.params
+  console.log("DetailData", comicData)
   return (
-    <DetailLayout />
+    <DetailLayout comicData={comicData} navigation={navigation} />
   );
 }
-
-
 export default Detail;
