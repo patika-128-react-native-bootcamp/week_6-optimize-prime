@@ -13,6 +13,7 @@ const baseStyles = StyleSheet.create({
   inner_container: {
     margin: 5,
     borderWidth: 1,
+    alignItems: 'center',
   },
   thumbnail: {
     width: 168,
@@ -21,6 +22,7 @@ const baseStyles = StyleSheet.create({
   title_container: {
     justifyContent: 'center',
     height: 50,
+    padding: spacing.tiny,
   },
   title: {
     fontSize: 15,
