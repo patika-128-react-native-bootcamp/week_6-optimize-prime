@@ -8,6 +8,7 @@ import Provider from '../context/Provider';
 
 import Home from '../Pages/Home';
 import Detail from '../Pages/Detail';
+import Characters from '../Pages/Characters/';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -36,7 +37,11 @@ const Navigation = () => {
           tabBarLabelStyle: { bottom: 10 },
         }}>
           <Tab.Screen name="Comics" component={DetailStack} />
+          <Tab.Screen name="Characters" component={Characters} />
+
           {/* <Tab.Screen name="Settings" component={Settings} /> */}
+
+
         </Tab.Navigator>
       </NavigationContainer>
     </Provider>
