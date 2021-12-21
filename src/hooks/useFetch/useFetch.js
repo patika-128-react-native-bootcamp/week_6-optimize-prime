@@ -19,7 +19,7 @@ const useFetch = url => {
       const response = await axios.get(
         `${BASE_URL}${url}${AUTH}`,
       );
-      setData(response.data);
+      setData(response.data.data.results);
     } catch (error) {
       setError(error);
     } finally {

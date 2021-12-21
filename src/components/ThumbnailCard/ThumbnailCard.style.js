@@ -10,6 +10,10 @@ const baseStyles = StyleSheet.create({
     justifyContent: 'center',
     width: width * 0.5,
   },
+  inner_container: {
+    margin: 5,
+    borderWidth: 1,
+  },
   thumbnail: {
     width: 168,
     height: 252,

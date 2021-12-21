@@ -8,14 +8,16 @@ const ThumbnailCard = ({thumbnail, title}) => {
   const theme = useSelector(state => state.theme);
   return (
     <View style={styles[theme].container}>
-      <Image
-        style={styles[theme].thumbnail}
-        source={{uri: `${thumbnail}${thumbnailSize}`}}
-      />
-      <View style={styles[theme].title_container}>
-        <Text numberOfLines={2} style={styles[theme].title}>
-          {title}
-        </Text>
+      <View style={styles[theme].inner_container}>
+        <Image
+          style={styles[theme].thumbnail}
+          source={{uri: `${thumbnail}${thumbnailSize}`}}
+        />
+        <View style={styles[theme].title_container}>
+          <Text numberOfLines={2} style={styles[theme].title}>
+            {title}
+          </Text>
+        </View>
       </View>
     </View>
   );

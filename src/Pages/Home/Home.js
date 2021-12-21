@@ -23,6 +23,6 @@ const Home = () => {
       // console.log(data.data);
     }
   }, [data]);
-  return <HomeLayout comicData={comicData.data.results} />;
+  return <HomeLayout comicData={comicData} />;
 };
 export default Home;
