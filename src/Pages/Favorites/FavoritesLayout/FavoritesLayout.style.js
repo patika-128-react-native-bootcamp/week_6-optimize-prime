@@ -1,6 +1,5 @@
 import { StyleSheet, Dimensions } from 'react-native';
-import spacing from '../../styles/spacing';
-import fontSize from '../../styles/fontSize';
+import spacing from '../../../styles/spacing';
 
 const { width, height } = Dimensions.get('window');
 
@@ -26,7 +25,7 @@ const baseStyles = StyleSheet.create({
   thumbnail: {
     width: 168,
     height: 252,
-    backgroundColor:'gray',
+    resizeMode: 'stretch'
   },
   title_container: {
     justifyContent: 'center',
@@ -34,7 +33,7 @@ const baseStyles = StyleSheet.create({
     padding: spacing.tiny,
   },
   title: {
-    fontSize: fontSize.normal,
+    fontSize: 15,
     flexWrap: 'wrap',
     fontFamily: 'Proxima Nova Semibold',
     fontWeight: 'bold',

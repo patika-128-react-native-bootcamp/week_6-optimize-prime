@@ -1,9 +1,9 @@
-import React, {useEffect, useState} from 'react';
-import {View, Text, Appearance} from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { View, Text, ImageBackground } from 'react-native';
 import HomeLayout from './HomeLayout';
 import useFetch from '../../hooks/useFetch/useFetch';
-import {useDispatch, useSelector} from 'react-redux';
-import {useNavigation} from '@react-navigation/native';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigation } from '@react-navigation/native';
 import useAppStarted from '../../hooks/useAppStarted';
 import Search from '../../utils/Search';
 import axios from 'axios';
@@ -13,10 +13,8 @@ const Home = () => {
   const theme = useSelector(state => state.theme);
   const [searchText, setSearchText] = useState('');
 
-  const [comicData, setComicData] = useState({data: 'data'});
-  const {loading, error, data} = useFetch('comics');
-  let temporaryText = '';
-
+  const [comicData, setComicData] = useState({ data: 'data' });
+  const { loading, error, data } = useFetch('comics');
   useAppStarted();
 
   const fetchSearchData = async searchText => {
@@ -49,8 +47,9 @@ const Home = () => {
     temporaryText = text;
     // setComicData(Search(data, text, 'title'));
   };
-  const handlGoDetail = item => {
-    navigation.navigate('ComicDetail', {comicData: item});
+  const handleGoDetail = item => {
+    navigation.navigate('ComicDetail', { comicData: item });
+    console.log('item = ', item);
   };
 
   if (loading) {
@@ -64,7 +63,7 @@ const Home = () => {
     <HomeLayout
       comicData={comicData}
       setText={getTextFromSearchInput}
-      onItemPress={handlGoDetail}
+      onItemPress={handleGoDetail}
       theme={theme}
       onSearch={handleSearch}
       onSearchSubmit={handleSearch}
