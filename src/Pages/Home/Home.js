@@ -24,8 +24,7 @@ const Home = () => {
     setComicData(Search(data, text, 'title'));
   };
   const handlGoDetail = item => {
-    navigation.navigate('Detail', {comicData: item});
-    console.log('item = ', item);
+    navigation.navigate('ComicDetail', {comicData: item});
   };
 
   if (loading) {

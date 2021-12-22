@@ -1,5 +1,6 @@
 import {StyleSheet, Dimensions} from 'react-native';
 import spacing from '../../styles/spacing';
+import fontSize from '../../styles/fontSize';
 
 const {width, height} = Dimensions.get('window');
 
@@ -27,7 +28,7 @@ const baseStyles = StyleSheet.create({
     padding: spacing.tiny,
   },
   title: {
-    fontSize: 15,
+    fontSize: fontSize.normal,
     flexWrap: 'wrap',
     fontFamily: 'Proxima Nova Semibold',
     fontWeight: 'bold',
