@@ -1,10 +1,12 @@
 import React, {useEffect, useState} from 'react';
 import useFetch from '../../hooks/useFetch/useFetch';
-import CharactersLayout from './CharactersLayout';
 import {Text} from 'react-native';
 import axios from 'axios';
+import {useNavigation} from '@react-navigation/native';
+import CharactersLayout from './CharactersLayout';
 
 const Characters = props => {
+  const navigation = useNavigation();
   const [searchText, setSearchText] = useState('cap');
   const [charactersData, setCharactersData] = useState({data: 'data'});
   const fetchData = async () => {
@@ -35,6 +37,10 @@ const Characters = props => {
     fetchData(searchText);
   }, [searchText]);
 
+  const handleGoChracterDetail = (item) => {
+    navigation.navigate('ChracterDetailPage', {chracterData: item});
+  };
+
   if (loading) {
     return <Text>Loading</Text>;
   }
@@ -47,6 +53,7 @@ const Characters = props => {
       charactersData={charactersData}
       setText={getTextFromSearchInput}
       onSearch={handleSearch}
+      onChracterPress={handleGoChracterDetail}
     />
   );
 };

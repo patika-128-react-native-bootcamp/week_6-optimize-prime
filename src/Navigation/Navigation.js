@@ -9,6 +9,7 @@ import Home from '../Pages/Home';
 import Detail from '../Pages/Detail';
 import Characters from '../Pages/Characters/';
 import ComicDetail from '../Pages/ComicDetail';
+import ChracterDetail from '../Pages/ChracterDetail';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -18,6 +19,14 @@ const DetailStack = () => {
     <Stack.Navigator>
       <Stack.Screen name="Home" component={Home} />
       <Stack.Screen name="ComicDetail" component={ComicDetail} />
+    </Stack.Navigator>
+  );
+};
+const ChracterDetailStack = () => {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name="CharactersPage" component={Characters}/>
+      <Stack.Screen name="ChracterDetailPage" component={ChracterDetail} />
     </Stack.Navigator>
   );
 };
@@ -41,7 +50,7 @@ const Navigation = () => {
             tabBarLabelStyle: {bottom: 10},
           }}>
           <Tab.Screen name="Comics" component={DetailStack} />
-          <Tab.Screen name="Characters" component={Characters} />
+          <Tab.Screen name="Characters" component={ChracterDetailStack} />
 
           {/* <Tab.Screen name="Settings" component={Settings} /> */}
         </Tab.Navigator>

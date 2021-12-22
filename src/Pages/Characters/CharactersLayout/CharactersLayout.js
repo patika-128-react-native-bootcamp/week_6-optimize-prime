@@ -1,11 +1,22 @@
 import React from 'react';
-import {View, Text, FlatList, TextInput,Button} from 'react-native';
+import {View, Text, FlatList, TextInput, Button} from 'react-native';
 import ThumbnailCard from '../../../components/ThumbnailCard';
 import styles from './CharactersLayout.style';
 
-const CharactersLayout = ({charactersData, setText,onSearch}) => {
+const CharactersLayout = ({
+  charactersData,
+  setText,
+  onSearch,
+  onChracterPress,
+}) => {
   const renderCharacters = ({item}) => {
-    return <ThumbnailCard thumbnail={item.thumbnail.path} title={item.name} />;
+    return (
+      <ThumbnailCard
+        thumbnail={item.thumbnail.path}
+        title={item.name}
+        onThumbnailCardPress={() => onChracterPress(item)}
+      />
+    );
   };
   return (
     <View style={styles.container}>
@@ -13,7 +24,7 @@ const CharactersLayout = ({charactersData, setText,onSearch}) => {
         onChangeText={setText}
         style={{backgroundColor: '#bdbdbd', margin: 5}}
       />
-      <Button title='Search' onPress={onSearch}/>
+      <Button title="Search" onPress={onSearch} />
       <FlatList
         numColumns={2}
         data={charactersData}
