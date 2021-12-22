@@ -9,13 +9,16 @@ import Provider from '../context/Provider';
 import Home from '../Pages/Home';
 import Detail from '../Pages/Detail';
 import Characters from '../Pages/Characters/';
+import Favorites from '../Pages/Favorites/';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
 const DetailStack = () => {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator screenOptions={{
+      headerShown: false
+    }}>
       <Stack.Screen name="Home" component={Home} />
       <Stack.Screen name="Detail" component={Detail} />
     </Stack.Navigator>
@@ -32,12 +35,13 @@ const Navigation = () => {
           tabBarActiveTintColor: '#1D1E1C',
           tabBarInactiveTintColor: '#979797',
           tabBarStyle: {
-            borderTopLeftRadius: 20, borderTopRightRadius: 20, backgroundColor: "white", height: 68, shadowColor: "#000",
+            borderTopLeftRadius: 20, borderTopRightRadius: 20, backgroundColor: "black", height: 68, shadowColor: "#000",
           },
           tabBarLabelStyle: { bottom: 10 },
         }}>
           <Tab.Screen name="Comics" component={DetailStack} />
           <Tab.Screen name="Characters" component={Characters} />
+          <Tab.Screen name="Favorites" component={Favorites} />
 
           {/* <Tab.Screen name="Settings" component={Settings} /> */}
 

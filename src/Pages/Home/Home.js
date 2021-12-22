@@ -1,9 +1,9 @@
-import React, {useEffect, useState} from 'react';
-import {View, Text, Appearance} from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { View, Text, ImageBackground } from 'react-native';
 import HomeLayout from './HomeLayout';
 import useFetch from '../../hooks/useFetch/useFetch';
-import {useDispatch, useSelector} from 'react-redux';
-import {useNavigation} from '@react-navigation/native';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigation } from '@react-navigation/native';
 import useAppStarted from '../../hooks/useAppStarted';
 import Search from '../../utils/Search';
 
@@ -17,8 +17,8 @@ const Home = () => {
   //   dispatch({type: 'CHANGE_APP_THEME', payload: {theme: scheme.colorScheme}});
   // });
 
-  const [comicData, setComicData] = useState({data: 'data'});
-  const {loading, error, data} = useFetch('comics');
+  const [comicData, setComicData] = useState({ data: 'data' });
+  const { loading, error, data } = useFetch('comics');
   useAppStarted();
   useEffect(() => {
     // dispatch({type: 'CHANGE_APP_THEME', payload: {theme: theme}});
@@ -42,8 +42,8 @@ const Home = () => {
   const getTextFromSearchInput = text => {
     setComicData(Search(data, text, 'title'));
   };
-  const handlGoDetail = item => {
-    navigation.navigate('Detail', {comicData: item});
+  const handleGoDetail = item => {
+    navigation.navigate('Detail', { comicData: item });
     console.log('item = ', item);
   };
 
@@ -58,7 +58,7 @@ const Home = () => {
     <HomeLayout
       comicData={comicData}
       setText={getTextFromSearchInput}
-      onItemPress={handlGoDetail}
+      onItemPress={handleGoDetail}
       theme={theme}
     />
   );
