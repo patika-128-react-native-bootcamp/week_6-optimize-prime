@@ -19,14 +19,16 @@ const DetailStack = () => {
     <Stack.Navigator>
       <Stack.Screen name="Home" component={Home} />
       <Stack.Screen name="ComicDetail" component={ComicDetail} />
+      <Stack.Screen name="ChracterDetailPage" component={ChracterDetail} />
     </Stack.Navigator>
   );
 };
 const ChracterDetailStack = () => {
   return (
     <Stack.Navigator>
-      <Stack.Screen name="CharactersPage" component={Characters}/>
+      <Stack.Screen name="CharactersPage" component={Characters} />
       <Stack.Screen name="ChracterDetailPage" component={ChracterDetail} />
+      <Stack.Screen name="ComicDetail" component={ComicDetail} />
     </Stack.Navigator>
   );
 };
