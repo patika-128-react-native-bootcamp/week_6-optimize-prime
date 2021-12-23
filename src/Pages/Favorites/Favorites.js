@@ -1,11 +1,8 @@
 import React from 'react';
-import { View } from 'react-native';
 import FavoritesLayout from './FavoritesLayout/FavoritesLayout';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { useNavigation } from '@react-navigation/native';
-
-
 
 const Favorites = () => {
   const favoritesList = useSelector(s => s.favoritesList);

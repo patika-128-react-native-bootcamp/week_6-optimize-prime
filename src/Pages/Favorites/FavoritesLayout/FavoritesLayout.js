@@ -4,10 +4,8 @@ import { View, FlatList } from 'react-native';
 import ThumbnailCard from '../../../components/ThumbnailCard';
 
 const FavoritesLayout = ({ onItemPress, onPress, favoritesList }) => {
-
   const renderComics = ({ item }) => {
     return (
-
       <ThumbnailCard
         thumbnail={item.thumbnail.path}
         title={item.title}
