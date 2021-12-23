@@ -30,13 +30,7 @@ const Favorites = () => {
       // saving error
     }
   };
-  removeValue = async key => {
-    try {
-      await AsyncStorage.removeItem(key);
-    } catch (e) {
-      // remove error
-    }
-  };
+
   const saveFavorite = async value => {
     const data = await getData('favoriteComics');
     const selectedComic = value;
@@ -46,9 +40,9 @@ const Favorites = () => {
 
     const updatedFavoritesList = data;
     updatedFavoritesList.splice(comicFavoritesIndex, 1);
-    removeValue('favoriteComics');
-    storeData('favoriteComics', [updatedFavoritesList]);
-    getData('favoriteComics',)
+
+    storeData('favoriteComics', updatedFavoritesList);
+    getData('favoriteComics');
   };
   // const selectedComic = action.payload.comic;
   // const comicFavoritesIndex = state.favoritesList.findIndex(
