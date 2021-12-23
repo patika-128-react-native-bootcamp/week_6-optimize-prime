@@ -45,6 +45,7 @@ const baseStyles = StyleSheet.create({
 export default {
   light: StyleSheet.create({
     ...baseStyles,
+    
   }),
   dark: StyleSheet.create({
     ...baseStyles,

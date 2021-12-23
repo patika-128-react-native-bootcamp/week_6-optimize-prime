@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import { View, Text, ImageBackground } from 'react-native';
-import HomeLayout from './HomeLayout';
+import React, {useEffect, useState} from 'react';
+import {View, Text, ImageBackground} from 'react-native';
 import useFetch from '../../hooks/useFetch/useFetch';
-import { useDispatch, useSelector } from 'react-redux';
-import { useNavigation } from '@react-navigation/native';
+import {useDispatch, useSelector} from 'react-redux';
+import {useNavigation} from '@react-navigation/native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import useAppStarted from '../../hooks/useAppStarted';
 import Search from '../../utils/Search';
+import HomeLayout from './HomeLayout';
 import axios from 'axios';
 
 const Home = () => {
@@ -13,9 +14,35 @@ const Home = () => {
   const theme = useSelector(state => state.theme);
   const [searchText, setSearchText] = useState('');
 
-  const [comicData, setComicData] = useState({ data: 'data' });
-  const { loading, error, data } = useFetch('comics');
+  const [comicData, setComicData] = useState({data: 'data'});
+  const {loading, error, data} = useFetch('comics','');
   useAppStarted();
+
+  const getData = async key => {
+    try {
+      const jsonValue = await AsyncStorage.getItem(key);
+      return jsonValue != null ? JSON.parse(jsonValue) : [];
+    } catch (e) {
+      // error reading value
+    }
+  };
+  const storeData = async (key, value) => {
+    try {
+      const jsonValue = JSON.stringify(value);
+      await AsyncStorage.setItem(key, jsonValue);
+    } catch (e) {
+      // saving error
+    }
+  };
+  const saveFavorite = async value => {
+    const data = await getData('favoriteComics');
+    const comicFavoriteIndex = data.findIndex(f => f.id === value.id);
+    const isInFavorites = comicFavoriteIndex !== -1;
+    if (isInFavorites) {
+      return;
+    }
+    storeData('favoriteComics', [...data, value]);
+  };
 
   const fetchSearchData = async searchText => {
     try {
@@ -30,6 +57,7 @@ const Home = () => {
   const handleSearch = () => {
     setSearchText(temporaryText);
   };
+
   useEffect(() => {
     if (searchText !== '') {
       console.log(searchText);
@@ -48,8 +76,12 @@ const Home = () => {
     // setComicData(Search(data, text, 'title'));
   };
   const handleGoDetail = item => {
-    navigation.navigate('ComicDetail', { comicData: item });
+    navigation.navigate('ComicDetail', {comicData: item});
     console.log('item = ', item);
+  };
+
+  const handleAddFavorites = comic => {
+    saveFavorite(comic);
   };
 
   if (loading) {
@@ -67,6 +99,7 @@ const Home = () => {
       theme={theme}
       onSearch={handleSearch}
       onSearchSubmit={handleSearch}
+      onAddFavorites={handleAddFavorites}
     />
   );
 };

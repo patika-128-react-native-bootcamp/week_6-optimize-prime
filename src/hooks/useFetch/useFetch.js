@@ -15,7 +15,7 @@ const useFetch = (url, keyword = '') => {
 
   const fetchData = async () => {
     try {
-      console.log(`${BASE_URL}${url}${LIMIT}${keyword}${API_KEY}`);
+      console.log(`adasdas ${BASE_URL}${url}${LIMIT}${keyword}${API_KEY}`);
       const response = await axios.get(`${BASE_URL}${url}${LIMIT}${keyword}${API_KEY}`);
       setData(response.data.data.results);
     } catch (error) {

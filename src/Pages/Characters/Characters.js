@@ -24,7 +24,7 @@ const Characters = props => {
   useEffect(() => {
     if (data !== null) {
       setCharactersData(data);
-      console.log('data', data);
+      // console.log('data', data);
     }
   }, [data]);
 
