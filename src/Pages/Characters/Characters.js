@@ -7,9 +7,11 @@ import CharactersLayout from './CharactersLayout';
 
 const Characters = props => {
   const navigation = useNavigation();
-  const [searchText, setSearchText] = useState('cap');
+  const [searchText, setSearchText] = useState('');
   const [charactersData, setCharactersData] = useState({data: 'data'});
-  const fetchData = async () => {
+  let temporaryText = '';
+
+  const fetchSearchData = async searchText => {
     try {
       const response = await axios.get(
         `https://gateway.marvel.com/v1/public/characters?ts=1&limit=100&nameStartsWith=${searchText}&apikey=6a3ac4ee649fa8f44ed2beb0990b8e5e&hash=b1092a87a9512ddc94b1093992505c3a`,
@@ -17,7 +19,6 @@ const Characters = props => {
       setCharactersData(response.data.data.results);
     } catch (error) {}
   };
-  let temporaryText = '';
 
   const {loading, error, data} = useFetch('characters', '');
   useEffect(() => {
@@ -34,10 +35,12 @@ const Characters = props => {
     setSearchText(temporaryText);
   };
   useEffect(() => {
-    fetchData(searchText);
+    if (searchText !== '') {
+      fetchSearchData(searchText);
+    }
   }, [searchText]);
 
-  const handleGoChracterDetail = (item) => {
+  const handleGoChracterDetail = item => {
     navigation.navigate('ChracterDetailPage', {chracterData: item});
   };
 
@@ -54,6 +57,7 @@ const Characters = props => {
       setText={getTextFromSearchInput}
       onSearch={handleSearch}
       onChracterPress={handleGoChracterDetail}
+      onSearchSubmit={handleSearch}
     />
   );
 };

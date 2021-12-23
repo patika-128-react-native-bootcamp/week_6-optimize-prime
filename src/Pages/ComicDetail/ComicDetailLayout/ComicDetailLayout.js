@@ -18,7 +18,9 @@ const ComicDetailLayout = ({comicData, charactersData}) => {
         />
         <Text style={styles[theme].title}>{comicData.title}</Text>
         <Text style={styles[theme].description}>
-          {comicData.description == '#N/A' || comicData.description == ''
+          {comicData.description == '#N/A' ||
+          comicData.description == '' ||
+          comicData.description == null
             ? 'Description Not Found'
             : comicData.description}
         </Text>

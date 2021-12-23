@@ -18,7 +18,9 @@ const ChracterDetailLayout = ({chracterData, comicsData, onComicPress}) => {
         />
         <Text style={styles[theme].title}>{chracterData.title}</Text>
         <Text style={styles[theme].description}>
-          {chracterData.description == '#N/A' || chracterData.description == ''
+          {chracterData.description == '#N/A' ||
+          chracterData.description == '' ||
+          chracterData.description == null
             ? 'Description Not Found'
             : chracterData.description}
         </Text>

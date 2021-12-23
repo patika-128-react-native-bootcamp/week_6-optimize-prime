@@ -1,5 +1,6 @@
 import React from 'react';
 import {View, Text, FlatList, TextInput, Button} from 'react-native';
+import SearchBar from '../../../components/SearchBar';
 import ThumbnailCard from '../../../components/ThumbnailCard';
 import styles from './CharactersLayout.style';
 
@@ -8,6 +9,7 @@ const CharactersLayout = ({
   setText,
   onSearch,
   onChracterPress,
+  onSearchSubmit,
 }) => {
   const renderCharacters = ({item}) => {
     return (
@@ -20,11 +22,11 @@ const CharactersLayout = ({
   };
   return (
     <View style={styles.container}>
-      <TextInput
+      <SearchBar
         onChangeText={setText}
-        style={{backgroundColor: '#bdbdbd', margin: 5}}
+        onSearch={onSearch}
+        onSubmitEditing={onSearchSubmit}
       />
-      <Button title="Search" onPress={onSearch} />
       <FlatList
         numColumns={2}
         data={charactersData}

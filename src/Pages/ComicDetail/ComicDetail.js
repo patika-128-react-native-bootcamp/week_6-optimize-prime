@@ -10,7 +10,7 @@ const ComicDetail = props => {
     `comics/${comicData.id}/characters`,
     '',
   );
-  const [charactersData, setCharactersData] = useState({});
+  const [charactersData, setCharactersData] = useState([]);
   useEffect(() => {
     if (data !== null) {
       console.log(data);

@@ -1,9 +1,17 @@
 import React from 'react';
-import {View, FlatList, TextInput} from 'react-native';
+import {View, FlatList, TextInput, Button} from 'react-native';
+import SearchBar from '../../../components/SearchBar';
 import ThumbnailCard from '../../../components/ThumbnailCard';
 import styles from './HomeLayout.style';
 
-const HomeLayout = ({comicData, setText, onItemPress,theme}) => {
+const HomeLayout = ({
+  comicData,
+  setText,
+  onItemPress,
+  theme,
+  onSearch,
+  onSearchSubmit,
+}) => {
   const renderComics = ({item}) => {
     return (
       <ThumbnailCard
@@ -15,9 +23,10 @@ const HomeLayout = ({comicData, setText, onItemPress,theme}) => {
   };
   return (
     <View style={styles.container}>
-      <TextInput
+      <SearchBar
         onChangeText={setText}
-        style={{backgroundColor: '#bdbdbd', margin: 5}}
+        onSearch={onSearch}
+        onSubmitEditing={onSearchSubmit}
       />
       <FlatList numColumns={2} data={comicData} renderItem={renderComics} />
     </View>
