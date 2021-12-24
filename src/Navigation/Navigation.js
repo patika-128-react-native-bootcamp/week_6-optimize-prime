@@ -12,6 +12,7 @@ import ComicDetail from '../Pages/ComicDetail';
 import ChracterDetail from '../Pages/ChracterDetail';
 import Favorites from '../Pages/Favorites/';
 import Settings from '../Pages/Settings';
+import ChracterFavorites from '../Pages/CharacterFavorites';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -30,7 +31,10 @@ const DetailStack = () => {
 };
 const ChracterDetailStack = () => {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator
+      screenOptions={{
+        headerShown: false,
+      }}>
       <Stack.Screen name="CharactersPage" component={Characters} />
       <Stack.Screen name="ChracterDetailPage" component={ChracterDetail} />
       <Stack.Screen name="ComicDetail" component={ComicDetail} />
@@ -39,11 +43,44 @@ const ChracterDetailStack = () => {
 };
 const FavoritesStack = () => {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator
+      screenOptions={{
+        headerShown: false,
+      }}>
       <Stack.Screen name="FavoritesPage" component={Favorites} />
       <Stack.Screen name="ComicDetail" component={ComicDetail} />
       <Stack.Screen name="ChracterDetailPage" component={ChracterDetail} />
     </Stack.Navigator>
+  );
+};
+
+const CharacterFavoritesStack = () => {
+  return (
+    <Stack.Navigator
+      screenOptions={{
+        headerShown: false,
+      }}>
+      <Stack.Screen
+        name="CharacterFavoritesPage"
+        component={ChracterFavorites}
+      />
+      <Stack.Screen name="ChracterDetailPage" component={ChracterDetail} />
+      <Stack.Screen name="ComicDetail" component={ComicDetail} />
+    </Stack.Navigator>
+  );
+};
+const FavoriteTab = () => {
+  return (
+    <Tab.Navigator
+      screenOptions={{
+        tabBarStyle: {position: 'absolute', top: 0},
+      }}>
+      <Tab.Screen name="ComicsFavorite" component={FavoritesStack} />
+      <Tab.Screen
+        name="CharactersFavorite"
+        component={CharacterFavoritesStack}
+      />
+    </Tab.Navigator>
   );
 };
 
@@ -53,7 +90,7 @@ const Navigation = () => {
       <NavigationContainer>
         <Tab.Navigator
           screenOptions={{
-            headerShown: false,
+            headerShown: true,
             tabBarActiveTintColor: '#1D1E1C',
             tabBarInactiveTintColor: '#979797',
             tabBarStyle: {
@@ -69,7 +106,7 @@ const Navigation = () => {
           <Tab.Screen name="Characters" component={ChracterDetailStack} />
           <Tab.Screen
             name="Favorites"
-            component={FavoritesStack}
+            component={FavoriteTab}
             options={{
               unmountOnBlur: true,
             }}

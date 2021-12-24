@@ -9,6 +9,7 @@ const CharactersLayout = ({
   setText,
   onSearch,
   onChracterPress,
+  onAddFavorites,
   onSearchSubmit,
   loadingSearch,
   theme,
@@ -18,7 +19,9 @@ const CharactersLayout = ({
       <ThumbnailCard
         thumbnail={item.thumbnail.path}
         title={item.name}
+        onPress={() => onAddFavorites(item)}
         onThumbnailCardPress={() => onChracterPress(item)}
+        iconColor={'white'}
       />
     );
   };

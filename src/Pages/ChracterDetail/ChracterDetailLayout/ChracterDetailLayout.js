@@ -16,7 +16,7 @@ const ChracterDetailLayout = ({chracterData, comicsData, onComicPress}) => {
         thumbnail={chracterData.thumbnail.path}
         title={chracterData.title}
         description={chracterData.description}
-        typeName={comicsData.length >0 ? "Comics" : 'Comics Not Found'}
+        typeName={comicsData.length > 0 ? 'Comics' : 'Comics Not Found'}
       />
     );
   };
