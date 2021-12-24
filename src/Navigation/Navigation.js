@@ -11,6 +11,7 @@ import Characters from '../Pages/Characters/';
 import ComicDetail from '../Pages/ComicDetail';
 import ChracterDetail from '../Pages/ChracterDetail';
 import Favorites from '../Pages/Favorites/';
+import Settings from '../Pages/Settings';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -76,6 +77,7 @@ const Navigation = () => {
               blur: () => navigation.setParams({screen: undefined}),
             })}
           />
+            <Tab.Screen name="Settings" component={Settings} />
 
           {/* <Tab.Screen name="Settings" component={Settings} /> */}
         </Tab.Navigator>
