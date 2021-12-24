@@ -14,7 +14,6 @@ const baseStyles = StyleSheet.create({
   inner_container: {
     width: 168,
     margin: spacing.tiny,
-    borderWidth: 1,
     alignItems: 'center',
   },
   favContainer: {
@@ -27,6 +26,7 @@ const baseStyles = StyleSheet.create({
     width: 168,
     height: 252,
     backgroundColor:'gray',
+    borderRadius: 7,
   },
   title_container: {
     justifyContent: 'center',
@@ -39,6 +39,8 @@ const baseStyles = StyleSheet.create({
     fontFamily: 'Proxima Nova Semibold',
     fontWeight: 'bold',
     textAlign: 'center',
+    color: "black",
+    lineHeight: 21,
   },
 });
 
