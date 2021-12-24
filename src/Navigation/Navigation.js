@@ -1,7 +1,10 @@
 import React from 'react';
-import {NavigationContainer} from '@react-navigation/native';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {createStackNavigator} from '@react-navigation/stack';
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createStackNavigator } from '@react-navigation/stack';
+
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+
 
 import Provider from '../context/Provider';
 
@@ -100,9 +103,13 @@ const Navigation = () => {
               height: 68,
               shadowColor: '#000',
             },
-            tabBarLabelStyle: {bottom: 10},
+            tabBarLabelStyle: { bottom: 10 },
           }}>
-          <Tab.Screen name="Comics" component={DetailStack} />
+          <Tab.Screen name="Comics" component={DetailStack}
+            navigationOptions={{
+              tabBarIcon: ({ tintColor }) => (
+                <Icon name="robot" size={37} color="white" />)
+            }} />
           <Tab.Screen name="Characters" component={ChracterDetailStack} />
           <Tab.Screen
             name="Favorites"
@@ -110,11 +117,12 @@ const Navigation = () => {
             options={{
               unmountOnBlur: true,
             }}
-            listeners={({navigation}) => ({
-              blur: () => navigation.setParams({screen: undefined}),
+
+            listeners={({ navigation }) => ({
+              blur: () => navigation.setParams({ screen: undefined }),
             })}
           />
-            <Tab.Screen name="Settings" component={Settings} />
+          <Tab.Screen name="Settings" component={Settings} />
 
           {/* <Tab.Screen name="Settings" component={Settings} /> */}
         </Tab.Navigator>
