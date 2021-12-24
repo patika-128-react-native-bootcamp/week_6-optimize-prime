@@ -1,6 +1,7 @@
 import React from 'react';
 import {View, Text, FlatList, Image} from 'react-native';
 import {useSelector} from 'react-redux';
+import DetailCard from '../../../components/DetailCard';
 import ThumbnailCard from '../../../components/ThumbnailCard';
 import styles from './ChracterDetailLayout.style';
 
@@ -11,21 +12,12 @@ const ChracterDetailLayout = ({chracterData, comicsData, onComicPress}) => {
 
   const flatListHeader = () => {
     return (
-      <View style={styles[theme].inner_container}>
-        <Image
-          style={styles[theme].thumbnail}
-          source={{uri: `${chracterData.thumbnail.path}${thumbnailSize}`}}
-        />
-        <Text style={styles[theme].title}>{chracterData.title}</Text>
-        <Text style={styles[theme].description}>
-          {chracterData.description == '#N/A' ||
-          chracterData.description == '' ||
-          chracterData.description == null
-            ? 'Description Not Found'
-            : chracterData.description}
-        </Text>
-        <Text style={styles[theme].title}>Comics</Text>
-      </View>
+      <DetailCard
+        thumbnail={chracterData.thumbnail.path}
+        title={chracterData.title}
+        description={chracterData.description}
+        typeName={comicsData.length >0 ? "Comics" : 'Comics Not Found'}
+      />
     );
   };
   const renderComics = ({item}) => {

@@ -10,6 +10,8 @@ const CharactersLayout = ({
   onSearch,
   onChracterPress,
   onSearchSubmit,
+  loadingSearch,
+  theme,
 }) => {
   const renderCharacters = ({item}) => {
     return (
@@ -21,17 +23,21 @@ const CharactersLayout = ({
     );
   };
   return (
-    <View style={styles.container}>
+    <View style={styles[theme].container}>
       <SearchBar
         onChangeText={setText}
         onSearch={onSearch}
         onSubmitEditing={onSearchSubmit}
       />
-      <FlatList
-        numColumns={2}
-        data={charactersData}
-        renderItem={renderCharacters}
-      />
+      {loadingSearch ? (
+        <Text>Loading</Text>
+      ) : (
+        <FlatList
+          numColumns={2}
+          data={charactersData}
+          renderItem={renderCharacters}
+        />
+      )}
     </View>
   );
 };

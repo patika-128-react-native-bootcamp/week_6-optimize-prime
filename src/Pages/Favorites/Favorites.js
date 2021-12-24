@@ -5,9 +5,6 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import {useNavigation} from '@react-navigation/native';
 
 const Favorites = () => {
-  const favoritesList = useSelector(s => s.favoritesList);
-  const dispatch = useDispatch();
-
   const navigation = useNavigation();
   const theme = useSelector(state => state.theme);
   const [favoriteData, setFavoriteData] = useState([]);
@@ -44,14 +41,6 @@ const Favorites = () => {
     storeData('favoriteComics', updatedFavoritesList);
     getData('favoriteComics');
   };
-  // const selectedComic = action.payload.comic;
-  // const comicFavoritesIndex = state.favoritesList.findIndex(
-  //   f => f.id === selectedComic.id,
-  // );
-  // const updatedFavoritesList = [...state.favoritesList];
-  // updatedFavoritesList.splice(comicFavoritesIndex, 1);
-
-  // return { ...state, favoritesList: updatedFavoritesList };
 
   useEffect(() => {
     console.log('favorites');
@@ -65,19 +54,14 @@ const Favorites = () => {
   };
   const handleRemoveFavorites = comic => {
     saveFavorite(comic);
-    // dispatch({type: 'REMOVE_FROM_FAVORITES', payload: {comic}});
   };
 
-  const handleRefresh = () => {
-    getData('favoriteComics');
-  };
   return (
     <FavoritesLayout
       onItemPress={handleGoDetail}
       theme={theme}
       onPress={handleRemoveFavorites}
       favoritesList={favoriteData}
-      onRefresh={handleRefresh}
     />
   );
 };

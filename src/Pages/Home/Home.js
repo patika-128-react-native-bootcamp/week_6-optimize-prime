@@ -13,9 +13,12 @@ const Home = () => {
   const navigation = useNavigation();
   const theme = useSelector(state => state.theme);
   const [searchText, setSearchText] = useState('');
-
   const [comicData, setComicData] = useState({data: 'data'});
-  const {loading, error, data} = useFetch('comics','');
+  const [favoritesList, setFavoritesList] = useState([]);
+  const {loading, error, data} = useFetch('comics', '');
+  const [loadingSearch, setLoadingSearch] = useState(false);
+  let temporaryText = '';
+
   useAppStarted();
 
   const getData = async key => {
@@ -36,6 +39,7 @@ const Home = () => {
   };
   const saveFavorite = async value => {
     const data = await getData('favoriteComics');
+    setFavoritesList(data);
     const comicFavoriteIndex = data.findIndex(f => f.id === value.id);
     const isInFavorites = comicFavoriteIndex !== -1;
     if (isInFavorites) {
@@ -46,10 +50,12 @@ const Home = () => {
 
   const fetchSearchData = async searchText => {
     try {
+      setLoadingSearch(true);
       const response = await axios.get(
         `https://gateway.marvel.com/v1/public/comics?ts=1&limit=100&titleStartsWith=${searchText}&apikey=6a3ac4ee649fa8f44ed2beb0990b8e5e&hash=b1092a87a9512ddc94b1093992505c3a`,
       );
       setComicData(response.data.data.results);
+      setLoadingSearch(false);
     } catch (error) {
       console.log(error);
     }
@@ -73,7 +79,6 @@ const Home = () => {
 
   const getTextFromSearchInput = text => {
     temporaryText = text;
-    // setComicData(Search(data, text, 'title'));
   };
   const handleGoDetail = item => {
     navigation.navigate('ComicDetail', {comicData: item});
@@ -100,6 +105,8 @@ const Home = () => {
       onSearch={handleSearch}
       onSearchSubmit={handleSearch}
       onAddFavorites={handleAddFavorites}
+      loadingSearch={loadingSearch}
+      favoritesList={favoritesList}
     />
   );
 };

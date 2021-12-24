@@ -8,6 +8,7 @@ const baseStyles = StyleSheet.create({
     alignItems: 'center',
     margin: spacing.tiny,
     borderRadius: radius.smooth,
+    paddingRight: spacing.normal,
   },
   input_container: {
     flex: 1,
@@ -21,15 +22,15 @@ export default {
   light: StyleSheet.create({
     ...baseStyles,
     container: {
-        ...baseStyles.container,
-        backgroundColor:'#bdbdbd',
+      ...baseStyles.container,
+      backgroundColor: '#bdbdbd',
     },
-}),
-dark: StyleSheet.create({
+  }),
+  dark: StyleSheet.create({
     ...baseStyles,
     container: {
-        ...baseStyles.container,
-        backgroundColor:'#bdbdbd',
+      ...baseStyles.container,
+      backgroundColor: '#bdbdbd',
     },
   }),
 };
