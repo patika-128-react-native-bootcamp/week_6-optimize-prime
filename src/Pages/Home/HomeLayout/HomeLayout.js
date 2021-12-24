@@ -1,29 +1,21 @@
 import React from 'react';
-import {View, FlatList, TextInput, Button} from 'react-native';
-import SearchBar from '../../../components/SearchBar';
+import { View, FlatList, TextInput, StatusBar } from 'react-native';
 import ThumbnailCard from '../../../components/ThumbnailCard';
 import styles from './HomeLayout.style';
-import {useDispatch} from 'react-redux';
+import { useDispatch } from 'react-redux';
 
-const HomeLayout = ({
-  comicData,
-  setText,
-  onItemPress,
-  theme,
-  onSearch,
-  onSearchSubmit,
-  onAddFavorites,
-}) => {
-  // const dispatch = useDispatch();
 
-  const renderComics = ({item}) => {
-    // const handleAddFavorites = comic =>
-    //   dispatch({
-    //     type: 'ADD_TO_FAVORITES',
-    //     payload: {
-    //       comic,
-    //     },
-    //   });
+const HomeLayout = ({ comicData, setText, onItemPress, theme }) => {
+  const dispatch = useDispatch();
+  
+  const renderComics = ({ item }) => {
+    const handleAddFavorites = comic =>
+      dispatch({
+        type: 'ADD_TO_FAVORITES',
+        payload: {
+          comic,
+        },
+      });
 
     return (
       <ThumbnailCard
@@ -31,7 +23,6 @@ const HomeLayout = ({
         title={item.title}
         onThumbnailCardPress={() => onItemPress(item)}
         onPress={() => handleAddFavorites(item)}
-        onPress={() => onAddFavorites(item)}
       />
     );
   };
@@ -39,8 +30,7 @@ const HomeLayout = ({
     <View style={styles.container}>
       <SearchBar
         onChangeText={setText}
-        onSearch={onSearch}
-        onSubmitEditing={onSearchSubmit}
+        style={{ backgroundColor: '#bdbdbd', margin: 5 }}
       />
       <FlatList numColumns={2} data={comicData} renderItem={renderComics} />
     </View>

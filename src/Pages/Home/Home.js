@@ -1,9 +1,9 @@
-import React, {useEffect, useState} from 'react';
-import {View, Text, ImageBackground} from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { View, Text, ImageBackground } from 'react-native';
+import HomeLayout from './HomeLayout';
 import useFetch from '../../hooks/useFetch/useFetch';
-import {useDispatch, useSelector} from 'react-redux';
-import {useNavigation} from '@react-navigation/native';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigation } from '@react-navigation/native';
 import useAppStarted from '../../hooks/useAppStarted';
 import Search from '../../utils/Search';
 import HomeLayout from './HomeLayout';
@@ -14,8 +14,8 @@ const Home = () => {
   const theme = useSelector(state => state.theme);
   const [searchText, setSearchText] = useState('');
 
-  const [comicData, setComicData] = useState({data: 'data'});
-  const {loading, error, data} = useFetch('comics','');
+  const [comicData, setComicData] = useState({ data: 'data' });
+  const { loading, error, data } = useFetch('comics');
   useAppStarted();
 
   const getData = async key => {
@@ -76,7 +76,7 @@ const Home = () => {
     // setComicData(Search(data, text, 'title'));
   };
   const handleGoDetail = item => {
-    navigation.navigate('ComicDetail', {comicData: item});
+    navigation.navigate('Detail', { comicData: item });
     console.log('item = ', item);
   };
 
