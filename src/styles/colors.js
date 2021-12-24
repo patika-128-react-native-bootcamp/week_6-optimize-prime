@@ -1,17 +1,18 @@
 export default {
-  light:{
-    primary: '#0d47a1',
-    primaryLight: '#5472d3',
-    primaryDark: '#002171',
-
+  light: {
+    backgroundColor:'#ffffff',
+    primaryTextColor:'#000000',
+    secondaryTextColor: '#c72828',
+    accentColor: '#c72828',
+    iconColorEmpty: '#ffffff',
+    iconColorFill: '#c72828',
   },
-  dark:{
-    secondary: '#64b5f6',
-    secondaryLight: '#9be7ff',
-    secondaryDark: '#2286c3',
-
+  dark: {
+    backgroundColor: '#000000',
+    primaryTextColor: '#ffffff',
+    accentColor: '#c72828',
+    secondaryTextColor: '#bcbcbc',
+    iconColorEmpty: '#ffffff',
+    iconColorFill: '#c72828',
   },
-  primaryTextColor: '#ffffff',
-  secondaryTextColor: '#000000',
-  homeBackgroundColor: '#424242',
 };
