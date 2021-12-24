@@ -6,6 +6,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import {useNavigation} from '@react-navigation/native';
 import CharactersLayout from './CharactersLayout';
 import {useSelector} from 'react-redux';
+import Loading from '../../components/Loading';
 
 const Characters = props => {
   const theme = useSelector(state => state.theme);
@@ -80,7 +81,7 @@ const Characters = props => {
   };
 
   if (loading) {
-    return <Text>Loading</Text>;
+    return <Loading/>
   }
   if (error) {
     return <Text>Error</Text>;

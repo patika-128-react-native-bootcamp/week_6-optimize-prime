@@ -8,6 +8,8 @@ import useAppStarted from '../../hooks/useAppStarted';
 import Search from '../../utils/Search';
 import HomeLayout from './HomeLayout';
 import axios from 'axios';
+import Loading from '../../components/Loading';
+import Error from '../../components/Error';
 
 const Home = () => {
   const navigation = useNavigation();
@@ -90,10 +92,10 @@ const Home = () => {
   };
 
   if (loading) {
-    return <Text>Loading</Text>;
+    return <Loading />;
   }
   if (error) {
-    return <Text>Error</Text>;
+    return <Error />;
   }
 
   return (

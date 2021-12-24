@@ -1,5 +1,6 @@
 import React from 'react';
 import {View, FlatList, TextInput, Button, Text} from 'react-native';
+import Loading from '../../../components/Loading';
 import SearchBar from '../../../components/SearchBar';
 import ThumbnailCard from '../../../components/ThumbnailCard';
 import styles from './HomeLayout.style';
@@ -41,7 +42,7 @@ const HomeLayout = ({
         onSubmitEditing={onSearchSubmit}
       />
       {loadingSearch ? (
-        <Text>Loading</Text>
+        <Loading/>
       ) : (
         <FlatList numColumns={2} data={comicData} renderItem={renderComics} />
       )}
