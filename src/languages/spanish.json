@@ -1,5 +1,9 @@
 {
   "translation": {
-    "SettingsText": "spanish" 
+    "Comics": "Cómica",
+    "Characters": "Caracteres",
+    "Favorites": "favoritos",
+    "SettingsText": "spanish",
+    "Characters not found": "Descripción no encontrada"
   }
 }

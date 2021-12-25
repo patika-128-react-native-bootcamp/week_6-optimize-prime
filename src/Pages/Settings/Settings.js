@@ -16,15 +16,13 @@ const themeOptions = [
 const Settings = () => {
   const { t, i18n } = useTranslation();
   return (
-    <View style={{ justifyContent: 'center', alignItems: 'center', height: '100%' }}>
-      <SwitchSelector options={langOptions} initial={0} hasPadding bold buttonColor={"red"} 
-
+    <View style={styles[theme].container}>
+      <SwitchSelector options={langOptions} initial={0} hasPadding bold buttonColor={"red"}
         onPress={(languages) => {
           i18n.changeLanguage(languages);
         }}
       />
-      <Text>{t("SettingsText")}</Text>
-      <SwitchSelector options={themeOptions} initial={0} hasPadding bold buttonColor={"red"}/>
+      <SwitchSelector options={themeOptions} initial={0} hasPadding bold buttonColor={"red"} />
     </View>
   );
 }

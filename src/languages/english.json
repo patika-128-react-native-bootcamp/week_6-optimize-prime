@@ -1,5 +1,10 @@
 {
   "translation": {
-    "SettingsText": "Settings" 
+    "Comics": "Comics",
+    "Characters": "Characters",
+    "Favorites": "Favorites",
+    "SettingsText": "Settings",
+    "Characters not found": "Characters not found",
+    "Description not found": "Description not found"
   }
 }
