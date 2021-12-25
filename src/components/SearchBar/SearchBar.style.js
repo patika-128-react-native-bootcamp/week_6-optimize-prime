@@ -13,16 +13,18 @@ const baseStyles = StyleSheet.create({
     // borderRadius: radius.smooth,
     borderBottomWidth: 2,
     borderColor: "white",
-    justifyContent: 'flex-end',
     marginHorizontal: 15,
-    paddingHorizontal: 10,
+    paddingHorizontal: 5,
+    justifyContent: 'space-between',
   },
   input_container: {
     flex: 1,
-    padding: spacing.tiny,
-
+    // padding: spacing.tiny,
+    
   },
   input: {
+    width: width * 0.7,
+    fontFamily: 'Proxima Nova Semibold',
 
   },
 });
@@ -31,10 +33,8 @@ export default {
     ...baseStyles,
     container: {
       ...baseStyles.container,
-      backgroundColor: 'rgba(255, 255, 255, 0.5)'
     },
     input_container: {
-      opacity: 0,
     }
   }),
   dark: StyleSheet.create({

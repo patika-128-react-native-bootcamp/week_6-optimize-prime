@@ -10,8 +10,9 @@ const SearchBar = ({onSearch, ...otherProps}) => {
   return (
     <View style={styles[theme].container}>
       <View style={styles[theme].input_container}>
-        <TextInput {...otherProps} color={"white"}/>
+        <TextInput {...otherProps} color={"white"} style={styles[theme].input}/>
       </View>
+      <Icon name="close" size={20} color={"white"} />
       <Icon name="magnify" size={30} onPress={onSearch} color={"white"} />
     </View>
   );
