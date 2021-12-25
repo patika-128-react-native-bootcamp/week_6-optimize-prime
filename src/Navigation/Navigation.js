@@ -14,9 +14,10 @@ import ChracterDetail from '../Pages/ChracterDetail';
 import Favorites from '../Pages/Favorites/';
 import Settings from '../Pages/Settings';
 import ChracterFavorites from '../Pages/CharacterFavorites';
+import fontSize from '../styles/fontSize';
 
 const navTheme = DefaultTheme;
-navTheme.colors.background = '#000';
+navTheme.colors.background = '#111111';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -36,9 +37,9 @@ const DetailStack = () => {
 const ChracterDetailStack = () => {
   return (
     <Stack.Navigator
-    screenOptions={{
-      headerShown: false
-    }}>
+      screenOptions={{
+        headerShown: false
+      }}>
       <Stack.Screen name="CharactersPage" component={Characters} />
       <Stack.Screen name="ChracterDetailPage" component={ChracterDetail} />
       <Stack.Screen name="ComicDetail" component={ComicDetail} />
@@ -101,26 +102,40 @@ const Navigation = () => {
               backgroundColor: 'black',
               height: 65,
             },
-            tabBarLabelStyle: { bottom: 10 },
+            tabBarLabelStyle: { bottom: 10, fontFamily: "Proxima Nova Semibold", fontSize: fontSize.small, },
           }}>
           <Tab.Screen name="Comics" component={DetailStack}
-            navigationOptions={{
-              tabBarIcon: ({ tintColor }) => (
-                <Icon name="star" size={37} />)
+            options={{
+              tabBarIcon: ({ focused, color, size }) => {
+                return <Icon name="skull" size={size} color={color} />
+              }
             }} />
-          <Tab.Screen name="Characters" component={ChracterDetailStack} />
+          <Tab.Screen name="Characters" component={ChracterDetailStack}
+            options={{
+              tabBarIcon: ({ focused, color, size }) => {
+                return <Icon name="account-cowboy-hat" size={size} color={color} />
+              }
+            }} />
           <Tab.Screen
             name="Favorites"
             component={FavoriteTab}
             options={{
               unmountOnBlur: true,
+              tabBarIcon: ({ focused, color, size }) => {
+                return <Icon name="star" size={size} color={color} />
+              }
             }}
 
             listeners={({ navigation }) => ({
               blur: () => navigation.setParams({ screen: undefined }),
             })}
           />
-          <Tab.Screen name="Settings" component={Settings} />
+          <Tab.Screen name="Settings" component={Settings}
+            options={{
+              tabBarIcon: ({ focused, color, size }) => {
+                return <Icon name="cog" size={size} color={color} />
+              }
+            }} />
 
           {/* <Tab.Screen name="Settings" component={Settings} /> */}
         </Tab.Navigator>
