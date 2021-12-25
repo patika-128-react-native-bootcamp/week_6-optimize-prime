@@ -93,9 +93,9 @@ const Navigation = () => {
       <NavigationContainer>
         <Tab.Navigator
           screenOptions={{
-            headerShown: true,
-            tabBarActiveTintColor: '#1D1E1C',
-            tabBarInactiveTintColor: '#979797',
+            headerShown: false,
+            tabBarActiveTintColor: '#C72828',
+            tabBarInactiveTintColor: 'white',
             tabBarStyle: {
               borderTopLeftRadius: 20,
               borderTopRightRadius: 20,
@@ -108,7 +108,7 @@ const Navigation = () => {
           <Tab.Screen name="Comics" component={DetailStack}
             navigationOptions={{
               tabBarIcon: ({ tintColor }) => (
-                <Icon name="robot" size={37} color="white" />)
+                <Icon name="star" size={37}/>)
             }} />
           <Tab.Screen name="Characters" component={ChracterDetailStack} />
           <Tab.Screen
