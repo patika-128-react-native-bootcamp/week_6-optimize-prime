@@ -21,7 +21,7 @@ const Home = () => {
 
   const [loadingSearch, setLoadingSearch] = useState(false);
 
-  const { loading, error, data } = useFetch('aaacomics', 'format=comic&');
+  const { loading, error, data } = useFetch('comics', 'format=comic&');
   useAppStarted();
 
   const getData = async key => {
