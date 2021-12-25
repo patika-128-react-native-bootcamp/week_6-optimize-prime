@@ -1,5 +1,5 @@
 export default {
-  sharp: 3,
+  sharp: 5,
   soft: 10,
   smooth: 15,
 };
