@@ -21,11 +21,15 @@ export default {
   light: StyleSheet.create({
     ...baseStyles,
     loadingContainer: {
+      ...baseStyles.loadingContainer,
       backgroundColor: colors.light.backgroundColor
     },
   }),
   dark: StyleSheet.create({
     ...baseStyles,
-    backgroundColor: colors.dark.backgroundColor
+    loadingContainer: {
+      ...baseStyles.loadingContainer,
+      backgroundColor: colors.dark.backgroundColor
+    }
   }),
 };

@@ -3,8 +3,11 @@
     "Comics": "Comics",
     "Characters": "Characters",
     "Favorites": "Favorites",
-    "SettingsText": "Settings",
+    "Settings": "Settings",
     "Characters not found": "Characters not found",
-    "Description not found": "Description not found"
+    "Description not found": "Description not found",
+    "Comics not found": "Comics not found",
+    "Language": "Language",
+    "Theme": "Theme"
   }
 }

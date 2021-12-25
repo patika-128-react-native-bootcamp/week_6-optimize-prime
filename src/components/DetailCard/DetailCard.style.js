@@ -24,6 +24,7 @@ const baseStyles = StyleSheet.create({
     textAlign: 'left',
     backgroundColor: 'rgba(30, 30, 30, 0.5)',
     width: width,
+    color: colors.textColor
   },
 
   description: {
@@ -59,26 +60,34 @@ export default {
   light: StyleSheet.create({
     ...baseStyles,
     characters: {
+      ...baseStyles.characters,
       color: colors.light.primaryTextColor
     },
-    title: {
-      color: colors.light.primaryTextColor
-    },
+
     inner_container: {
+      ...baseStyles.inner_container,
       backgroundColor: colors.light.backgroundColor
+    },
+    description: {
+      ...baseStyles.description,
+      color: colors.light.primaryTextColor,
     },
   }),
   dark: StyleSheet.create({
     ...baseStyles,
     characters: {
+      ...baseStyles.characters,
       color: colors.dark.primaryTextColor
     },
 
-    title: {
-      color: colors.dark.primaryTextColor
-    },
+
     inner_container: {
+      ...baseStyles.inner_container,
       backgroundColor: colors.dark.backgroundColor
+    },
+    description: {
+      ...baseStyles.description,
+      color: colors.dark.primaryTextColor,
     },
   }),
 };

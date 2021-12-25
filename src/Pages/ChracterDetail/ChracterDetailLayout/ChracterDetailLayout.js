@@ -1,5 +1,7 @@
 import React from 'react';
 import {View, Text, FlatList, Image} from 'react-native';
+import { useTranslation } from "react-i18next";
+
 import {useSelector} from 'react-redux';
 import DetailCard from '../../../components/DetailCard';
 import ThumbnailCard from '../../../components/ThumbnailCard';
@@ -11,12 +13,13 @@ const ChracterDetailLayout = ({chracterData, comicsData, onComicPress}) => {
   const theme = useSelector(state => state.theme);
 
   const flatListHeader = () => {
+    const { t, i18n } = useTranslation();
     return (
       <DetailCard
         thumbnail={chracterData.thumbnail.path}
         title={chracterData.name}
         description={chracterData.description}
-        typeName={comicsData.length > 0 ? 'Comics' : 'Comics Not Found'}
+        typeName={comicsData.length > 0 ? 'Comics' : t('Comics not found')}
       />
     );
   };

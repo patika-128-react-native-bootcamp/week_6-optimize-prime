@@ -1,11 +1,12 @@
 export default {
   light: {
-    backgroundColor:'#ffffff',
-    primaryTextColor:'#000000',
+    backgroundColor: '#ffffff',
+    primaryTextColor: '#000000',
     secondaryTextColor: '#c72828',
     accentColor: '#c72828',
     iconColorEmpty: '#ffffff',
     iconColorFill: '#c72828',
+    secondaryBackgroundColor: '#ffffff'
   },
   dark: {
     backgroundColor: '#111111',
@@ -14,5 +15,7 @@ export default {
     secondaryTextColor: '#bcbcbc',
     iconColorEmpty: '#ffffff',
     iconColorFill: '#c72828',
+    secondaryBackgroundColor: '#bcbcbc'
   },
+  textColor: '#ffffff',
 };

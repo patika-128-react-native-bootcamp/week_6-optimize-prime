@@ -3,8 +3,11 @@
     "Comics": "Comics",
     "Characters": "Zeichen",
     "Favorites": "Favoriten",
-    "SettingsText": "Einstellungen",
-    "Characters not found": "Charaktere nicht gefunden"
-
+    "Settings": "Einstellungen",
+    "Characters not found": "Charaktere nicht gefunden",
+    "Description not found": "Beschreibung nicht gefunden",
+    "Comics not found": "Comics nicht gefunden",
+    "Language": "Sprache",
+    "Theme": "Thema"
   }
 }

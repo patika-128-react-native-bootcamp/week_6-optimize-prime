@@ -2,8 +2,12 @@
   "translation": {
     "Comics": "Cómica",
     "Characters": "Caracteres",
-    "Favorites": "favoritos",
-    "SettingsText": "spanish",
-    "Characters not found": "Descripción no encontrada"
+    "Favorites": "Favoritos",
+    "Settings": "Ajustes",
+    "Characters not found": "Caracteres no encontrados",
+    "Description not found": "Descripción no encontrada",
+    "Comics not found": "Cómics no encontrados",
+    "Language": "Idioma",
+    "Theme": "Tema"
   }
 }
