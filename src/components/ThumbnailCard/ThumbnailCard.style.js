@@ -30,7 +30,7 @@ const baseStyles = StyleSheet.create({
   },
   title_container: {
     justifyContent: 'center',
-    height: 50,
+    height: 55,
     padding: spacing.tiny,
   },
   title: {
@@ -39,8 +39,10 @@ const baseStyles = StyleSheet.create({
     fontFamily: 'Proxima Nova Semibold',
     fontWeight: 'bold',
     textAlign: 'center',
-    color: "black",
+    color: "white",
     lineHeight: 21,
+    marginTop: spacing.tiny
+
   },
 });
 
