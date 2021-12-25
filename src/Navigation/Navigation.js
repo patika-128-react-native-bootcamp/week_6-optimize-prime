@@ -1,13 +1,11 @@
 import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
-
 import Provider from '../context/Provider';
-
 import Home from '../Pages/Home';
 import Detail from '../Pages/Detail';
 import Characters from '../Pages/Characters/';
@@ -16,6 +14,9 @@ import ChracterDetail from '../Pages/ChracterDetail';
 import Favorites from '../Pages/Favorites/';
 import Settings from '../Pages/Settings';
 import ChracterFavorites from '../Pages/CharacterFavorites';
+
+const navTheme = DefaultTheme;
+navTheme.colors.background = '#000';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -35,9 +36,9 @@ const DetailStack = () => {
 const ChracterDetailStack = () => {
   return (
     <Stack.Navigator
-      screenOptions={{
-        headerShown: false,
-      }}>
+    screenOptions={{
+      headerShown: false
+    }}>
       <Stack.Screen name="CharactersPage" component={Characters} />
       <Stack.Screen name="ChracterDetailPage" component={ChracterDetail} />
       <Stack.Screen name="ComicDetail" component={ComicDetail} />
@@ -48,7 +49,7 @@ const FavoritesStack = () => {
   return (
     <Stack.Navigator
       screenOptions={{
-        headerShown: false,
+        headerShown: false
       }}>
       <Stack.Screen name="FavoritesPage" component={Favorites} />
       <Stack.Screen name="ComicDetail" component={ComicDetail} />
@@ -90,25 +91,22 @@ const FavoriteTab = () => {
 const Navigation = () => {
   return (
     <Provider>
-      <NavigationContainer>
+      <NavigationContainer theme={navTheme}>
         <Tab.Navigator
           screenOptions={{
             headerShown: false,
             tabBarActiveTintColor: '#C72828',
             tabBarInactiveTintColor: 'white',
             tabBarStyle: {
-              borderTopLeftRadius: 20,
-              borderTopRightRadius: 20,
               backgroundColor: 'black',
-              height: 68,
-              shadowColor: '#000',
+              height: 65,
             },
             tabBarLabelStyle: { bottom: 10 },
           }}>
           <Tab.Screen name="Comics" component={DetailStack}
             navigationOptions={{
               tabBarIcon: ({ tintColor }) => (
-                <Icon name="star" size={37}/>)
+                <Icon name="star" size={37} />)
             }} />
           <Tab.Screen name="Characters" component={ChracterDetailStack} />
           <Tab.Screen
