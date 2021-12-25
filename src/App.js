@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, StatusBar } from 'react-native';
 import Navigation from './Navigation';
 
 /**
@@ -21,6 +21,12 @@ import Navigation from './Navigation';
 
 export default function App() {
   return (
-    <Navigation />
+    <View style={{ flex: 1 }}>
+      <Navigation />
+      <StatusBar
+        animated={true}
+        backgroundColor="transparent"
+        translucent={true} />
+    </View>
   );
 }
