@@ -59,9 +59,7 @@ const Home = () => {
       setLoadingSearch(false);
     } catch (error) {
       console.log(error);
-    } finally {
-      setSearchLoading(false);
-    }
+        }
   };
   const handleSearch = () => {
     setSearchText(temporaryText);
@@ -79,11 +77,9 @@ const Home = () => {
     if (data !== null) {
       console.log("DATA", data)
       setComicData(data.splice(50, 100));
-
     }
   }, [data]);
-  console.log("COMİCDATA", comicData)
-
+  
   const getTextFromSearchInput = text => {
     temporaryText = text;
   };
@@ -103,11 +99,7 @@ const Home = () => {
     return <Error />;
   }
 
-  // if (searchLoading) {
-  //   return <Text>Loading</Text>;
-  // }
   return (
-
     <HomeLayout
       comicData={comicData}
       setText={getTextFromSearchInput}
