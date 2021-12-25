@@ -1,8 +1,8 @@
-import React, {useEffect, useState} from 'react';
-import {View, Text, ImageBackground} from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { View, Text, StatusBar } from 'react-native';
 import useFetch from '../../hooks/useFetch/useFetch';
-import {useDispatch, useSelector} from 'react-redux';
-import {useNavigation} from '@react-navigation/native';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigation } from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import useAppStarted from '../../hooks/useAppStarted';
 import Search from '../../utils/Search';
@@ -15,12 +15,11 @@ const Home = () => {
   const navigation = useNavigation();
   const theme = useSelector(state => state.theme);
   const [searchText, setSearchText] = useState('');
-  const [comicData, setComicData] = useState({data: 'data'});
-  const [favoritesList, setFavoritesList] = useState([]);
-  const {loading, error, data} = useFetch('comics', '');
-  const [loadingSearch, setLoadingSearch] = useState(false);
-  let temporaryText = '';
 
+  const [comicData, setComicData] = useState({ data: 'data' });
+  const [searchLoading, setSearchLoading] = useState(true);
+
+  const { loading, error, data } = useFetch('comics', 'format=comic&');
   useAppStarted();
 
   const getData = async key => {
@@ -60,6 +59,8 @@ const Home = () => {
       setLoadingSearch(false);
     } catch (error) {
       console.log(error);
+    } finally {
+      setSearchLoading(false);
     }
   };
   const handleSearch = () => {
@@ -70,20 +71,24 @@ const Home = () => {
     if (searchText !== '') {
       console.log(searchText);
       fetchSearchData(searchText);
+
     }
   }, [searchText]);
 
   useEffect(() => {
     if (data !== null) {
-      setComicData(data);
+      console.log("DATA", data)
+      setComicData(data.splice(50, 100));
+
     }
   }, [data]);
+  console.log("COMİCDATA", comicData)
 
   const getTextFromSearchInput = text => {
     temporaryText = text;
   };
   const handleGoDetail = item => {
-    navigation.navigate('ComicDetail', {comicData: item});
+    navigation.navigate('ComicDetail', { comicData: item });
     console.log('item = ', item);
   };
 
@@ -98,7 +103,11 @@ const Home = () => {
     return <Error />;
   }
 
+  // if (searchLoading) {
+  //   return <Text>Loading</Text>;
+  // }
   return (
+
     <HomeLayout
       comicData={comicData}
       setText={getTextFromSearchInput}
