@@ -26,7 +26,8 @@ const baseStyles = StyleSheet.create({
     fontSize: fontSize.huge,
     textAlign: 'left',
     color: "white",
-    backgroundColor: 'rgba(30, 30, 30, 0.5)'
+    backgroundColor: 'rgba(30, 30, 30, 0.5)',
+    width: width,
   },
 
   description: {
