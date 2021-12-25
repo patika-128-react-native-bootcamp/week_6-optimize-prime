@@ -1,17 +1,17 @@
 import React, {useEffect, useState} from 'react';
 import {useNavigation, useRoute} from '@react-navigation/native';
 import useFetch from '../../hooks/useFetch/useFetch';
-import ChracterDetailLayout from './ChracterDetailLayout';
+import CharacterDetailLayout from './CharacterDetailLayout';
 import Loading from '../../components/Loading';
 import {Text} from 'react-native';
 
 const CharacterDetail = props => {
   const route = useRoute();
   const navigation = useNavigation();
-  const {chracterData} = route.params;
+  const {characterData} = route.params;
 
   const {loading, error, data} = useFetch(
-    `characters/${chracterData.id}/comics`,
+    `characters/${characterData.id}/comics`,
     '',
   );
   const [comicsData, setComicsData] = useState([]);
@@ -33,8 +33,8 @@ const CharacterDetail = props => {
   }
 
   return (
-    <ChracterDetailLayout
-      chracterData={chracterData}
+    <CharacterDetailLayout
+      characterData={characterData}
       comicsData={comicsData}
       onComicPress={handleGoComic}
     />

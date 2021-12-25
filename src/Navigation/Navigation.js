@@ -7,7 +7,7 @@ import { useTranslation } from "react-i18next";
 import Settings from '../Pages/Settings';
 import fontSize from '../styles/fontSize';
 import DetailStack from './DetailStack';
-import ChracterDetailStack from './ChracterDetailStack';
+import CharacterDetailStack from './CharacterDetailStack';
 import FavoriteTab from './FavoriteTab';
 
 const Tab = createBottomTabNavigator();
@@ -47,7 +47,7 @@ const Navigation = () => {
         />
         <Tab.Screen
           name="Characters"
-          component={ChracterDetailStack}
+          component={CharacterDetailStack}
           options={{
             tabBarLabel: t("Characters"),
             tabBarIcon: ({ focused, color, size }) => {

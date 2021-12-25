@@ -2,7 +2,7 @@ import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import Home from '../../Pages/Home';
 import ComicDetail from '../../Pages/ComicDetail';
-import ChracterDetail from '../../Pages/ChracterDetail';
+import CharacterDetail from '../../Pages/CharacterDetail';
 
 const Stack = createStackNavigator();
 
@@ -14,7 +14,7 @@ const DetailStack = () => {
       }}>
       <Stack.Screen name="Home" component={Home} />
       <Stack.Screen name="ComicDetail" component={ComicDetail} />
-      <Stack.Screen name="ChracterDetailPage" component={ChracterDetail} />
+      <Stack.Screen name="CharacterDetailPage" component={CharacterDetail} />
     </Stack.Navigator>
   );
 };

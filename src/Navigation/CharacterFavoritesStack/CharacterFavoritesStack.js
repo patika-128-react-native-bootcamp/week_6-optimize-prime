@@ -1,6 +1,6 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
-import ChracterDetail from '../../Pages/ChracterDetail';
+import CharacterDetail from '../../Pages/CharacterDetail';
 import ComicDetail from '../../Pages/ComicDetail';
 import CharacterFavorites from '../../Pages/CharacterFavorites';
 
@@ -16,7 +16,7 @@ const CharacterFavoritesStack = () => {
         name="CharacterFavoritesPage"
         component={CharacterFavorites}
       />
-      <Stack.Screen name="ChracterDetailPage" component={ChracterDetail} />
+      <Stack.Screen name="CharacterDetailPage" component={CharacterDetail} />
       <Stack.Screen name="ComicDetail" component={ComicDetail} />
     </Stack.Navigator>
   );

@@ -13,7 +13,7 @@ import styles from './ComicDetailLayout.style';
 import ThumbnailCard from '../../../components/ThumbnailCard';
 import DetailCard from '../../../components/DetailCard';
 
-const ComicDetailLayout = ({ comicData, charactersData, onChracterPress }) => {
+const ComicDetailLayout = ({ comicData, charactersData, onCharacterPress }) => {
   const thumbnailSize = '.jpg';
   console.log(`${comicData.thumbnail.path}${thumbnailSize}`);
   const theme = useSelector(state => state.theme);
@@ -26,7 +26,7 @@ const ComicDetailLayout = ({ comicData, charactersData, onChracterPress }) => {
         title={comicData.title}
         description={comicData.description}
         typeName={
-          charactersData.length > 0 ? 'Chracters' : t('Chracters Not Found')
+          charactersData.length > 0 ? 'Characters' : t('Characters Not Found')
         }
       />
     );
@@ -37,7 +37,7 @@ const ComicDetailLayout = ({ comicData, charactersData, onChracterPress }) => {
       <ThumbnailCard
         thumbnail={item.thumbnail.path}
         title={item.name}
-        onThumbnailCardPress={() => onChracterPress(item)}
+        onThumbnailCardPress={() => onCharacterPress(item)}
       />
     );
   };

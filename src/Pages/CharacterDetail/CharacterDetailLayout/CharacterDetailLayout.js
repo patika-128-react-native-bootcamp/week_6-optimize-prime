@@ -5,9 +5,9 @@ import { useTranslation } from "react-i18next";
 import {useSelector} from 'react-redux';
 import DetailCard from '../../../components/DetailCard';
 import ThumbnailCard from '../../../components/ThumbnailCard';
-import styles from './ChracterDetailLayout.style';
+import styles from './CharacterDetailLayout.style';
 
-const ChracterDetailLayout = ({chracterData, comicsData, onComicPress}) => {
+const CharacterDetailLayout = ({characterData, comicsData, onComicPress}) => {
   const thumbnailSize = '.jpg';
 
   const theme = useSelector(state => state.theme);
@@ -16,9 +16,9 @@ const ChracterDetailLayout = ({chracterData, comicsData, onComicPress}) => {
     const { t, i18n } = useTranslation();
     return (
       <DetailCard
-        thumbnail={chracterData.thumbnail.path}
-        title={chracterData.name}
-        description={chracterData.description}
+        thumbnail={characterData.thumbnail.path}
+        title={characterData.name}
+        description={characterData.description}
         typeName={comicsData.length > 0 ? 'Comics' : t('Comics not found')}
       />
     );
@@ -44,4 +44,4 @@ const ChracterDetailLayout = ({chracterData, comicsData, onComicPress}) => {
     </View>
   );
 };
-export default ChracterDetailLayout;
+export default CharacterDetailLayout;

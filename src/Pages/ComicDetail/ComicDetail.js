@@ -20,8 +20,8 @@ const ComicDetail = props => {
       setCharactersData(data);
     }
   }, [data]);
-  const handleGoChracter= (item) => {
-    navigation.navigate('ChracterDetailPage', {chracterData: item});
+  const handleGoCharacter= (item) => {
+    navigation.navigate('CharacterDetailPage', {characterData: item});
   }
   if(loading){
     return <Loading/>
@@ -31,7 +31,7 @@ const ComicDetail = props => {
   }
 
   return (
-    <ComicDetailLayout comicData={comicData} charactersData={charactersData} onChracterPress={handleGoChracter} />
+    <ComicDetailLayout comicData={comicData} charactersData={charactersData} onCharacterPress={handleGoCharacter} />
   );
 };
 export default ComicDetail;

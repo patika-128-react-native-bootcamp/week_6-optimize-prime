@@ -1,5 +1,5 @@
 import React, {useEffect, useState, useMemo} from 'react';
-import ChracterFavoritesLayout from './CharacterFavoritesLayout';
+import CharacterFavoritesLayout from './CharacterFavoritesLayout';
 import {useSelector, useDispatch} from 'react-redux';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {useNavigation} from '@react-navigation/native';
@@ -49,7 +49,7 @@ const CharacterFavorites = () => {
   }, []);
 
   const handleGoDetail = item => {
-    navigation.navigate('ChracterDetailPage', {chracterData: item});
+    navigation.navigate('CharacterDetailPage', {characterData: item});
     console.log('item = ', item);
   };
   const handleRemoveFavorites = comic => {
@@ -57,7 +57,7 @@ const CharacterFavorites = () => {
   };
 
   return (
-    <ChracterFavoritesLayout
+    <CharacterFavoritesLayout
       onItemPress={handleGoDetail}
       theme={theme}
       onPress={handleRemoveFavorites}

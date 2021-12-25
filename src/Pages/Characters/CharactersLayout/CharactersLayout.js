@@ -9,7 +9,7 @@ const CharactersLayout = ({
   charactersData,
   setText,
   onSearch,
-  onChracterPress,
+  onCharacterPress,
   onAddFavorites,
   onSearchSubmit,
   loadingSearch,
@@ -21,7 +21,7 @@ const CharactersLayout = ({
         thumbnail={item.thumbnail.path}
         title={item.name}
         onPress={() => onAddFavorites(item)}
-        onThumbnailCardPress={() => onChracterPress(item)}
+        onThumbnailCardPress={() => onCharacterPress(item)}
         iconColor={'white'}
       />
     );

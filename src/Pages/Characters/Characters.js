@@ -73,8 +73,8 @@ const Characters = props => {
     }
   }, [searchText]);
 
-  const handleGoChracterDetail = item => {
-    navigation.navigate('ChracterDetailPage', {chracterData: item});
+  const handleGoCharacterDetail = item => {
+    navigation.navigate('CharacterDetailPage', {characterData: item});
   };
   const handleAddFavorites = character => {
     saveFavorite(character);
@@ -92,7 +92,7 @@ const Characters = props => {
       charactersData={charactersData}
       setText={getTextFromSearchInput}
       onSearch={handleSearch}
-      onChracterPress={handleGoChracterDetail}
+      onCharacterPress={handleGoCharacterDetail}
       onSearchSubmit={handleSearch}
       onAddFavorites={handleAddFavorites}
       loadingSearch={loadingSearch}
