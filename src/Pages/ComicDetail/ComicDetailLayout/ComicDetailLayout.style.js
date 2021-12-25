@@ -1,8 +1,7 @@
 import { StyleSheet, Dimensions } from 'react-native';
 import spacing from '../../../styles/spacing';
 import fontSize from '../../../styles/fontSize';
-
-
+import colors from '../../../styles/colors';
 
 const { width, height } = Dimensions.get('window');
 const baseStyles = StyleSheet.create({
@@ -11,12 +10,11 @@ const baseStyles = StyleSheet.create({
     backgroundColor: 'black'
   },
   inner_container: {
-    padding: spacing.large,
     alignItems: 'center',
   },
   thumbnail: {
     width: width,
-    height: width * 1.5,
+    height: width * 1.3,
   },
   title: {
     position: 'absolute',
@@ -25,10 +23,10 @@ const baseStyles = StyleSheet.create({
     alignSelf: 'flex-start',
     fontWeight: 'bold',
     fontFamily: 'Proxima Nova Semibold',
-    fontSize: fontSize.large,
+    fontSize: fontSize.huge,
     textAlign: 'left',
     color: "white",
-    fontSize: 32,
+    backgroundColor: 'rgba(30, 30, 30, 0.5)'
   },
 
   description: {
@@ -37,9 +35,8 @@ const baseStyles = StyleSheet.create({
     fontSize: fontSize.normal,
     textAlign: 'left',
     color: "white",
-    marginVertical: 10,
     textAlign: 'justify',
-
+    padding: spacing.large,
 
   },
   linearGradient: {
@@ -57,6 +54,10 @@ const baseStyles = StyleSheet.create({
   },
   image_container: {
     position: "relative",
+  },
+  gradient: {
+    width: width,
+    height: width * 1.3,
   }
 });
 
