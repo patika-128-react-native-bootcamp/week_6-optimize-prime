@@ -1,8 +1,9 @@
 import React from 'react';
-import {View, FlatList, TextInput, Button, Text} from 'react-native';
+import {View, FlatList, TextInput, Button, Text, StatusBar} from 'react-native';
 import Loading from '../../../components/Loading';
 import SearchBar from '../../../components/SearchBar';
 import ThumbnailCard from '../../../components/ThumbnailCard';
+import colors from '../../../styles/colors';
 import styles from './HomeLayout.style';
 
 const HomeLayout = ({
@@ -36,13 +37,23 @@ const HomeLayout = ({
 
   return (
     <View style={styles[theme].container}>
+      <StatusBar
+        animated={true}
+        backgroundColor={
+          theme == 'light'
+            ? colors.light.backgroundColor
+            : colors.dark.backgroundColor
+        }
+        translucent={true}
+      />
       <SearchBar
         onChangeText={setText}
         onSearch={onSearch}
         onSubmitEditing={onSearchSubmit}
+        placeholder="Search..."
       />
       {loadingSearch ? (
-        <Loading/>
+        <Loading />
       ) : (
         <FlatList numColumns={2} data={comicData} renderItem={renderComics} />
       )}

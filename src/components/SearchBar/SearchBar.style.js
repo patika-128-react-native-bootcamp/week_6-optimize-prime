@@ -1,31 +1,26 @@
-import { StyleSheet, Dimensions } from 'react-native';
+import {StyleSheet, Dimensions} from 'react-native';
 import spacing from '../../styles/spacing';
 import radius from '../../styles/radius';
+import colors from '../../styles/colors';
 
-const { width, height } = Dimensions.get('window');
-
+const {width, height} = Dimensions.get('window');
 
 const baseStyles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     alignItems: 'center',
     margin: spacing.tiny,
-    // borderRadius: radius.smooth,
     borderBottomWidth: 2,
-    borderColor: "white",
     marginHorizontal: 15,
     paddingHorizontal: 5,
     justifyContent: 'space-between',
   },
   input_container: {
     flex: 1,
-    // padding: spacing.tiny,
-    
   },
   input: {
     width: width * 0.7,
     fontFamily: 'Proxima Nova Semibold',
-
   },
 });
 export default {
@@ -33,15 +28,25 @@ export default {
     ...baseStyles,
     container: {
       ...baseStyles.container,
+      borderColor: colors.light.primaryTextColor,
+      backgroundColor: colors.light.backgroundColor,
     },
-    input_container: {
-    }
+
+    input: {
+      color: colors.light.primaryTextColor,
+    },
   }),
   dark: StyleSheet.create({
     ...baseStyles,
+
     container: {
       ...baseStyles.container,
-      backgroundColor: '#bdbdbd',
+      borderColor: colors.dark.primaryTextColor,
+      backgroundColor: colors.dark.backgroundColor,
+    },
+
+    input: {
+      color: colors.dark.primaryTextColor,
     },
   }),
 };

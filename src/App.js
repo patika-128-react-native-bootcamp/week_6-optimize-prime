@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, StatusBar } from 'react-native';
+import Provider from './context/Provider';
 import Navigation from './Navigation';
 
 /**
@@ -21,12 +22,15 @@ import Navigation from './Navigation';
 
 export default function App() {
   return (
+    <Provider>
+
     <View style={{ flex: 1 }}>
       <Navigation />
-      <StatusBar
+      {/* <StatusBar
         animated={true}
-        backgroundColor="transparent"
-        translucent={true} />
+        backgroundColor="red"
+        translucent={true} /> */}
     </View>
+        </Provider>
   );
 }

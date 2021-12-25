@@ -1,8 +1,9 @@
-import { StyleSheet, Dimensions } from 'react-native';
+import {StyleSheet, Dimensions} from 'react-native';
 import spacing from '../../styles/spacing';
 import fontSize from '../../styles/fontSize';
+import colors from '../../styles/colors';
 
-const { width, height } = Dimensions.get('window');
+const {width, height} = Dimensions.get('window');
 
 const baseStyles = StyleSheet.create({
   container: {
@@ -17,7 +18,7 @@ const baseStyles = StyleSheet.create({
     alignItems: 'center',
   },
   favContainer: {
-    position: "absolute",
+    position: 'absolute',
     zIndex: 10,
     right: 10,
     top: 10,
@@ -25,7 +26,7 @@ const baseStyles = StyleSheet.create({
   thumbnail: {
     width: 168,
     height: 252,
-    backgroundColor:'gray',
+    backgroundColor: 'gray',
     borderRadius: 7,
   },
   title_container: {
@@ -39,19 +40,33 @@ const baseStyles = StyleSheet.create({
     fontFamily: 'Proxima Nova Semibold',
     fontWeight: 'bold',
     textAlign: 'center',
-    color: "white",
+    color: 'white',
     lineHeight: 21,
-    marginTop: spacing.tiny
-
+    marginTop: spacing.tiny,
   },
 });
 
 export default {
   light: StyleSheet.create({
     ...baseStyles,
-    
+    container: {
+      ...baseStyles.container,
+      backgroundColor: colors.light.backgroundColor,
+    },
+    title: {
+      ...baseStyles.title,
+      color: colors.light.primaryTextColor,
+    },
   }),
   dark: StyleSheet.create({
     ...baseStyles,
+    container: {
+      ...baseStyles.container,
+      backgroundColor: colors.dark.backgroundColor,
+    },
+    title: {
+      ...baseStyles.title,
+      color: colors.dark.primaryTextColor,
+    },
   }),
 };

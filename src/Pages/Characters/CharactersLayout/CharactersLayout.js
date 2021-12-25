@@ -32,6 +32,7 @@ const CharactersLayout = ({
         onChangeText={setText}
         onSearch={onSearch}
         onSubmitEditing={onSearchSubmit}
+        placeholder='Search...'
       />
       {loadingSearch ? (
        <Loading/>

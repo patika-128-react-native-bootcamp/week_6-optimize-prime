@@ -1,4 +1,5 @@
 import {StyleSheet} from 'react-native';
+import colors from '../../styles/colors';
 
 const baseStyles = StyleSheet.create({
   container: {
@@ -8,8 +9,16 @@ const baseStyles = StyleSheet.create({
 export default {
   light: StyleSheet.create({
     ...baseStyles,
+    container: {
+      ...baseStyles.container,
+      backgroundColor: colors.light.backgroundColor,
+    },
   }),
   dark: StyleSheet.create({
     ...baseStyles,
+    container: {
+      ...baseStyles.container,
+      backgroundColor: colors.dark.backgroundColor,
+    },
   }),
 };

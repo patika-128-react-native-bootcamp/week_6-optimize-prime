@@ -12,7 +12,6 @@ const baseStyles = StyleSheet.create({
   thumbnail: {
     width: width,
     height: width * 1.3,
-    resizeMode: 'contain',
   },
   title: {
     position: 'absolute',

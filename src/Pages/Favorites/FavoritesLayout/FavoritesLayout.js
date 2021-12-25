@@ -1,9 +1,12 @@
 import React from 'react';
 import {View, FlatList} from 'react-native';
+import {useSelector} from 'react-redux';
+import styles from './FavoritesLayout.style';
 
 import ThumbnailCard from '../../../components/ThumbnailCard';
 
 const FavoritesLayout = ({onItemPress, onPress, favoritesList}) => {
+  const theme = useSelector(state => state.theme);
   const renderComics = ({item}) => {
     return (
       <ThumbnailCard
@@ -17,7 +20,7 @@ const FavoritesLayout = ({onItemPress, onPress, favoritesList}) => {
   };
 
   return (
-    <View>
+    <View style={styles[theme].container}>
       <FlatList numColumns={2} data={favoritesList} renderItem={renderComics} />
     </View>
   );

@@ -8,7 +8,7 @@ export default {
     iconColorFill: '#c72828',
   },
   dark: {
-    backgroundColor: '#000000',
+    backgroundColor: '#111111',
     primaryTextColor: '#ffffff',
     accentColor: '#c72828',
     secondaryTextColor: '#bcbcbc',

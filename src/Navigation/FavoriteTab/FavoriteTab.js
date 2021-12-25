@@ -8,11 +8,10 @@ const Tab = createBottomTabNavigator();
 const FavoriteTab = () => {
   return (
     <Tab.Navigator
-      screenOptions={
-        {
-          // tabBarStyle: {position: 'absolute', top: 0},
-        }
-      }>
+      screenOptions={{
+        headerShown: false,
+        tabBarStyle: {position: 'absolute', top: 60},
+      }}>
       <Tab.Screen name="ComicsFavorite" component={FavoritesStack} />
       <Tab.Screen
         name="CharactersFavorite"
