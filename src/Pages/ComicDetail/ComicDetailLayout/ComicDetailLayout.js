@@ -22,13 +22,12 @@ const ComicDetailLayout = ({ comicData, charactersData, onChracterPress }) => {
       // />
       <View style={styles[theme].inner_container}>
         <View style={styles.imageContainer}>
-          <LinearGradient colors={['black', 'white', 'black']} style={styles.linearGradient}>
-            <Image
-              style={styles[theme].thumbnail}
-              source={{ uri: `${comicData.thumbnail.path}${thumbnailSize}` }}
-            >
+          <Image
+            style={styles[theme].thumbnail}
+            source={{ uri: `${comicData.thumbnail.path}${thumbnailSize}` }} />
+          {/* <LinearGradient colors={['black', 'white', 'black']} style={styles.linearGradient}>
             </Image>
-          </LinearGradient>
+          </LinearGradient> */}
           <Text numberOfLines={2} style={styles[theme].title}>{comicData.title}</Text>
         </View>
         <Text style={styles[theme].description}>

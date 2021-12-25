@@ -17,7 +17,9 @@ const Home = () => {
   const [searchText, setSearchText] = useState('');
 
   const [comicData, setComicData] = useState({ data: 'data' });
-  const [searchLoading, setSearchLoading] = useState(true);
+  const [favoritesList, setFavoritesList] = useState([]);
+
+  const [loadingSearch, setLoadingSearch] = useState(false);
 
   const { loading, error, data } = useFetch('comics', 'format=comic&');
   useAppStarted();
@@ -59,7 +61,7 @@ const Home = () => {
       setLoadingSearch(false);
     } catch (error) {
       console.log(error);
-        }
+    }
   };
   const handleSearch = () => {
     setSearchText(temporaryText);
@@ -79,7 +81,7 @@ const Home = () => {
       setComicData(data.splice(50, 100));
     }
   }, [data]);
-  
+
   const getTextFromSearchInput = text => {
     temporaryText = text;
   };
