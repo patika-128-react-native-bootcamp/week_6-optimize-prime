@@ -1,11 +1,11 @@
 import React from 'react';
-import {View, Text, Image, ScrollView, FlatList} from 'react-native';
-import {useSelector} from 'react-redux';
+import { View, Text, ImageBackground, ScrollView, FlatList } from 'react-native';
+import { useSelector } from 'react-redux';
 import styles from './ComicDetailLayout.style';
 import ThumbnailCard from '../../../components/ThumbnailCard';
 import DetailCard from '../../../components/DetailCard';
 
-const ComicDetailLayout = ({comicData, charactersData, onChracterPress}) => {
+const ComicDetailLayout = ({ comicData, charactersData, onChracterPress }) => {
   const thumbnailSize = '.jpg';
   console.log(`${comicData.thumbnail.path}${thumbnailSize}`);
   const theme = useSelector(state => state.theme);
@@ -23,7 +23,7 @@ const ComicDetailLayout = ({comicData, charactersData, onChracterPress}) => {
     );
   };
 
-  const renderCharacters = ({item}) => {
+  const renderCharacters = ({ item }) => {
     return (
       <ThumbnailCard
         thumbnail={item.thumbnail.path}
@@ -31,6 +31,7 @@ const ComicDetailLayout = ({comicData, charactersData, onChracterPress}) => {
         onThumbnailCardPress={() => onChracterPress(item)}
       />
     );
+
   };
 
   return (
