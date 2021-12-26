@@ -44,14 +44,12 @@ const Favorites = () => {
   };
 
   useEffect(() => {
-    console.log('favorites');
 
     getData('favoriteComics');
   }, []);
 
   const handleGoDetail = item => {
     navigation.navigate(routes.COMIC_DETAIL, {comicData: item});
-    console.log('item = ', item);
   };
   const handleRemoveFavorites = comic => {
     saveFavorite(comic);

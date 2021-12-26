@@ -51,7 +51,6 @@ const CharacterFavorites = () => {
 
   const handleGoDetail = item => {
     navigation.navigate(routes.CHARACTER_DETAIL_PAGE, {characterData: item});
-    console.log('item = ', item);
   };
   const handleRemoveFavorites = comic => {
     saveFavorite(comic);

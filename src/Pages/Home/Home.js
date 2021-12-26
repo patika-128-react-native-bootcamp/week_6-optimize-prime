@@ -73,7 +73,7 @@ const Home = () => {
 
   useEffect(() => {
     if (searchText !== '') {
-      console.log(searchText);
+      (searchText);
       fetchSearchData(searchText);
     }
   }, [searchText]);
@@ -81,7 +81,6 @@ const Home = () => {
   useEffect(() => {
     getData('favoriteComics');
     if (data !== null) {
-      console.log('DATA', data);
       setComicData(data.splice(50, 100));
     }
   }, [data]);
@@ -91,7 +90,6 @@ const Home = () => {
   };
   const handleGoDetail = item => {
     navigation.navigate(routes.COMIC_DETAIL, {comicData: item});
-    console.log('item = ', item);
   };
 
   const handleAddFavorites = comic => {
