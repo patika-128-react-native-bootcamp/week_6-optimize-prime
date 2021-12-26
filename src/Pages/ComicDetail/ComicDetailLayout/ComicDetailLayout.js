@@ -26,7 +26,7 @@ const ComicDetailLayout = ({ comicData, charactersData, onCharacterPress }) => {
         title={comicData.title}
         description={comicData.description}
         typeName={
-          charactersData.length > 0 ? 'Characters' : t('Characters Not Found')
+          charactersData.length > 0 ? 'Characters' : t('Characters not found')
         }
       />
     );
