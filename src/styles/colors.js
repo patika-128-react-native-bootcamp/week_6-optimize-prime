@@ -18,4 +18,7 @@ export default {
     secondaryBackgroundColor: '#bcbcbc'
   },
   textColor: '#ffffff',
+  accentColor: '#c72828',
+  black: '#000000',
+  white: "#fff"
 };
