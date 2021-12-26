@@ -10,6 +10,7 @@ import HomeLayout from './HomeLayout';
 import axios from 'axios';
 import Loading from '../../components/Loading';
 import Error from '../../components/Error';
+import routes from '../../Navigation/routes';
 
 const Home = () => {
   const navigation = useNavigation();
@@ -22,6 +23,7 @@ const Home = () => {
   const [loadingSearch, setLoadingSearch] = useState(false);
 
   const {loading, error, data} = useFetch('comics', 'format=comic&');
+  let temporaryText = '';
   useAppStarted();
 
   const getData = async key => {
@@ -88,7 +90,7 @@ const Home = () => {
     temporaryText = text;
   };
   const handleGoDetail = item => {
-    navigation.navigate('ComicDetail', {comicData: item});
+    navigation.navigate(routes.COMIC_DETAIL, {comicData: item});
     console.log('item = ', item);
   };
 

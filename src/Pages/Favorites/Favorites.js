@@ -3,6 +3,7 @@ import FavoritesLayout from './FavoritesLayout/FavoritesLayout';
 import {useSelector, useDispatch} from 'react-redux';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {useNavigation} from '@react-navigation/native';
+import routes from '../../Navigation/routes';
 
 const Favorites = () => {
   const navigation = useNavigation();
@@ -49,7 +50,7 @@ const Favorites = () => {
   }, []);
 
   const handleGoDetail = item => {
-    navigation.navigate('ComicDetail', {comicData: item});
+    navigation.navigate(routes.COMIC_DETAIL, {comicData: item});
     console.log('item = ', item);
   };
   const handleRemoveFavorites = comic => {

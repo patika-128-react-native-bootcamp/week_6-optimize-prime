@@ -2,6 +2,7 @@ import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import FavoritesStack from '../FavoritesStack';
 import CharacterFavoritesStack from '../CharacterFavoritesStack';
+import routes from '../routes';
 
 const Tab = createBottomTabNavigator();
 
@@ -12,9 +13,9 @@ const FavoriteTab = () => {
         headerShown: false,
         tabBarStyle: {position: 'absolute', top:0},
       }}>
-      <Tab.Screen name="ComicsFavorite" component={FavoritesStack} />
+      <Tab.Screen name={routes.COMICS_FAVORITE} component={FavoritesStack} />
       <Tab.Screen
-        name="CharactersFavorite"
+        name={routes.CHARACTERS_FAVORITE}
         component={CharacterFavoritesStack}
       />
     </Tab.Navigator>

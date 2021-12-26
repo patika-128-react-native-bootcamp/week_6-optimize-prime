@@ -7,6 +7,7 @@ import {useNavigation} from '@react-navigation/native';
 import CharactersLayout from './CharactersLayout';
 import {useSelector} from 'react-redux';
 import Loading from '../../components/Loading';
+import routes from '../../Navigation/routes';
 
 const Characters = props => {
   const theme = useSelector(state => state.theme);
@@ -59,6 +60,7 @@ const Characters = props => {
 
   const {loading, error, data} = useFetch('characters', '');
   useEffect(() => {
+    getData('favoriteCharacters');
     if (data !== null) {
       setCharactersData(data);
       // console.log('data', data);
@@ -78,7 +80,7 @@ const Characters = props => {
   }, [searchText]);
 
   const handleGoCharacterDetail = item => {
-    navigation.navigate('CharacterDetailPage', {characterData: item});
+    navigation.navigate(routes.CHARACTER_DETAIL_PAGE, {characterData: item});
   };
   const handleAddFavorites = character => {
     saveFavorite(character);

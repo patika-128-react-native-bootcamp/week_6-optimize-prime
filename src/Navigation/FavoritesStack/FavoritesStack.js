@@ -3,6 +3,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import ComicDetail from '../../Pages/ComicDetail';
 import CharacterDetail from '../../Pages/CharacterDetail';
 import Favorites from '../../Pages/Favorites/';
+import routes from '../routes';
 
 const Stack = createStackNavigator();
 
@@ -12,9 +13,9 @@ const FavoritesStack = () => {
       screenOptions={{
         headerShown: false,
       }}>
-      <Stack.Screen name="FavoritesPage" component={Favorites} />
-      <Stack.Screen name="ComicDetail" component={ComicDetail} />
-      <Stack.Screen name="CharacterDetailPage" component={CharacterDetail} />
+      <Stack.Screen name={routes.FAVORITES_PAGE} component={Favorites} />
+      <Stack.Screen name={routes.COMIC_DETAIL} component={ComicDetail} />
+      <Stack.Screen name={routes.CHARACTER_DETAIL_PAGE} component={CharacterDetail} />
     </Stack.Navigator>
   );
 };

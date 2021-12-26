@@ -9,6 +9,7 @@ import fontSize from '../styles/fontSize';
 import DetailStack from './DetailStack';
 import CharacterDetailStack from './CharacterDetailStack';
 import FavoriteTab from './FavoriteTab';
+import routes from './routes';
 
 const Tab = createBottomTabNavigator();
 
@@ -36,7 +37,7 @@ const Navigation = () => {
           },
         }}>
         <Tab.Screen
-          name="Comics"
+          name={routes.COMICS}
           component={DetailStack}
           options={{
             tabBarLabel: t("Comics"),
@@ -46,7 +47,7 @@ const Navigation = () => {
           }}
         />
         <Tab.Screen
-          name="Characters"
+          name={routes.CHARACTERS}
           component={CharacterDetailStack}
           options={{
             tabBarLabel: t("Characters"),
@@ -58,7 +59,7 @@ const Navigation = () => {
           }}
         />
         <Tab.Screen
-          name="Favorites"
+          name={routes.FAVORITES}
           component={FavoriteTab}
           options={{
             tabBarLabel: t("Favorites"),
@@ -72,7 +73,7 @@ const Navigation = () => {
           })}
         />
         <Tab.Screen
-          name="Settings"
+          name={routes.SETTINGS}
           component={Settings}
           options={{
             tabBarLabel: t("Settings"),

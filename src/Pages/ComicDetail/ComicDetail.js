@@ -4,6 +4,7 @@ import ComicDetailLayout from './ComicDetailLayout';
 import useFetch from '../../hooks/useFetch/useFetch';
 import { Text } from 'react-native';
 import Loading from '../../components/Loading';
+import routes from '../../Navigation/routes';
 
 const ComicDetail = props => {
   const route = useRoute();
@@ -21,7 +22,7 @@ const ComicDetail = props => {
     }
   }, [data]);
   const handleGoCharacter= (item) => {
-    navigation.navigate('CharacterDetailPage', {characterData: item});
+    navigation.navigate(routes.CHARACTER_DETAIL_PAGE, {characterData: item});
   }
   if(loading){
     return <Loading/>
