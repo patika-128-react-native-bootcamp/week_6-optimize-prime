@@ -1,5 +1,6 @@
 import React from 'react';
 import {View, Text, FlatList, TextInput, Button} from 'react-native';
+import { useTranslation } from "react-i18next";
 import Loading from '../../../components/Loading';
 import SearchBar from '../../../components/SearchBar';
 import ThumbnailCard from '../../../components/ThumbnailCard';
@@ -17,6 +18,7 @@ const CharactersLayout = ({
   theme,
   favoritesList,
 }) => {
+  const { t, i18n } = useTranslation();
   const renderCharacters = ({item}) => {
     const isFavorite =
       favoritesList.findIndex(find => {
@@ -38,7 +40,7 @@ const CharactersLayout = ({
         onChangeText={setText}
         onSearch={onSearch}
         onSubmitEditing={onSearchSubmit}
-        placeholder="Search..."
+        placeholder={t("Search")}
       />
       {loadingSearch ? (
         <Loading />
