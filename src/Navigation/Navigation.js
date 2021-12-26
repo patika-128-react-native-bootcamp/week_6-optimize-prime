@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux';
 import { useTranslation } from "react-i18next";
 import Settings from '../Pages/Settings';
 import fontSize from '../styles/fontSize';
+import colors from '../styles/colors';
 import DetailStack from './DetailStack';
 import CharacterDetailStack from './CharacterDetailStack';
 import FavoriteTab from './FavoriteTab';
@@ -24,10 +25,10 @@ const Navigation = () => {
       <Tab.Navigator
         screenOptions={{
           headerShown: false,
-          tabBarActiveTintColor: '#C72828',
-          tabBarInactiveTintColor: 'white',
+          tabBarActiveTintColor: colors.accentColor,
+          tabBarInactiveTintColor: colors.white,
           tabBarStyle: {
-            backgroundColor: 'black',
+            backgroundColor: colors.black,
             height: 65,
           },
           tabBarLabelStyle: {
