@@ -44,6 +44,7 @@ const HomeLayout = ({
             ? colors.light.backgroundColor
             : colors.dark.backgroundColor
         }
+        barStyle={`${theme == 'light' ? 'dark' : 'light'}-content`}
         // translucent={true}
       />
       <SearchBar
