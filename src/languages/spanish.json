@@ -4,10 +4,17 @@
     "Characters": "Caracteres",
     "Favorites": "Favoritos",
     "Settings": "Ajustes",
+    "Favorite Comics": "Cómics favoritos",
+    "Favorite Characters": "Personajes favoritos",
     "Characters not found": "Caracteres no encontrados",
     "Description not found": "Descripción no encontrada",
     "Comics not found": "Cómics no encontrados",
     "Language": "Idioma",
-    "Theme": "Tema"
+    "Theme": "Tema",
+    "Light": "Ligera",
+    "Dark": "Oscura",
+    "Automatic": "Automática",
+    "Search": "Búsqueda..."
+
   }
 }
