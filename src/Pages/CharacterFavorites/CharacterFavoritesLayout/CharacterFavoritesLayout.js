@@ -2,6 +2,7 @@ import React from 'react';
 import {View, FlatList} from 'react-native';
 import {useSelector} from 'react-redux';
 import ThumbnailCard from '../../../components/ThumbnailCard';
+import colors from '../../../styles/colors';
 import styles from './CharacterFavoritesLayout.style';
 
 const CharacterFavoritesLayout = ({onItemPress, onPress, favoritesList}) => {
@@ -13,7 +14,7 @@ const CharacterFavoritesLayout = ({onItemPress, onPress, favoritesList}) => {
         title={item.name}
         onThumbnailCardPress={() => onItemPress(item)}
         onPress={() => onPress(item)}
-        iconColor={'#ffa500'}
+        iconColor={colors[theme].accentColor}
       />
     );
   };

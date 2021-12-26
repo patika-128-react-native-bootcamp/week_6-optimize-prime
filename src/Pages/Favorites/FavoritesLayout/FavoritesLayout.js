@@ -4,6 +4,7 @@ import {useSelector} from 'react-redux';
 import styles from './FavoritesLayout.style';
 
 import ThumbnailCard from '../../../components/ThumbnailCard';
+import colors from '../../../styles/colors';
 
 const FavoritesLayout = ({onItemPress, onPress, favoritesList}) => {
   const theme = useSelector(state => state.theme);
@@ -14,7 +15,7 @@ const FavoritesLayout = ({onItemPress, onPress, favoritesList}) => {
         title={item.title}
         onThumbnailCardPress={() => onItemPress(item)}
         onPress={() => onPress(item)}
-        iconColor={'#ffa500'}
+        iconColor={colors[theme].accentColor}
       />
     );
   };

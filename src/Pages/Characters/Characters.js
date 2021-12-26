@@ -12,6 +12,7 @@ const Characters = props => {
   const theme = useSelector(state => state.theme);
   const navigation = useNavigation();
   const [searchText, setSearchText] = useState('');
+  const [favoritesList, setFavoritesList] = useState([]);
   const [charactersData, setCharactersData] = useState({data: 'data'});
   const [loadingSearch, setLoadingSearch] = useState(false);
   let temporaryText = '';
@@ -19,7 +20,9 @@ const Characters = props => {
   const getData = async key => {
     try {
       const jsonValue = await AsyncStorage.getItem(key);
-      return jsonValue != null ? JSON.parse(jsonValue) : [];
+      const jsonParse = jsonValue != null ? JSON.parse(jsonValue) : [];
+      setFavoritesList([...jsonParse]);
+      return jsonParse;
     } catch (e) {
       // error reading value
     }
@@ -34,6 +37,7 @@ const Characters = props => {
   };
   const saveFavorite = async value => {
     const data = await getData('favoriteCharacters');
+    setFavoritesList([...data, value]);
     const characterFavoriteIndex = data.findIndex(f => f.id === value.id);
     const isInFavorites = characterFavoriteIndex !== -1;
     if (isInFavorites) {
@@ -81,7 +85,7 @@ const Characters = props => {
   };
 
   if (loading) {
-    return <Loading/>
+    return <Loading />;
   }
   if (error) {
     return <Text>Error</Text>;
@@ -96,6 +100,7 @@ const Characters = props => {
       onSearchSubmit={handleSearch}
       onAddFavorites={handleAddFavorites}
       loadingSearch={loadingSearch}
+      favoritesList={favoritesList}
       theme={theme}
     />
   );

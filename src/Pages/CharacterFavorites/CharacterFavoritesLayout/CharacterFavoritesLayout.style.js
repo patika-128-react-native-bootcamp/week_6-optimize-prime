@@ -5,7 +5,7 @@ const {width, height} = Dimensions.get('window');
 
 const baseStyles = StyleSheet.create({
   container: {
-    marginTop: 110,
+    marginTop: 50,
     flex: 1,
   },
 });

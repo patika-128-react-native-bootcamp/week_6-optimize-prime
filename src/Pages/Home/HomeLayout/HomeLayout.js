@@ -30,7 +30,7 @@ const HomeLayout = ({
         title={item.title}
         onThumbnailCardPress={() => onItemPress(item)}
         onPress={() => onAddFavorites(item)}
-        iconColor={isFavorite === true ? '#ffa500' : 'white'}
+        iconColor={isFavorite === true ? colors[theme].accentColor : 'white'}
       />
     );
   };
@@ -44,7 +44,7 @@ const HomeLayout = ({
             ? colors.light.backgroundColor
             : colors.dark.backgroundColor
         }
-        translucent={true}
+        // translucent={true}
       />
       <SearchBar
         onChangeText={setText}

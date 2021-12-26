@@ -10,7 +10,7 @@ const FavoriteTab = () => {
     <Tab.Navigator
       screenOptions={{
         headerShown: false,
-        tabBarStyle: {position: 'absolute', top: 60},
+        tabBarStyle: {position: 'absolute', top:0},
       }}>
       <Tab.Screen name="ComicsFavorite" component={FavoritesStack} />
       <Tab.Screen

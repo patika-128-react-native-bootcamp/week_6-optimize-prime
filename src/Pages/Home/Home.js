@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import { View, Text, StatusBar } from 'react-native';
+import React, {useEffect, useState} from 'react';
+import {View, Text, StatusBar} from 'react-native';
 import useFetch from '../../hooks/useFetch/useFetch';
-import { useDispatch, useSelector } from 'react-redux';
-import { useNavigation } from '@react-navigation/native';
+import {useDispatch, useSelector} from 'react-redux';
+import {useNavigation} from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import useAppStarted from '../../hooks/useAppStarted';
 import Search from '../../utils/Search';
@@ -16,18 +16,20 @@ const Home = () => {
   const theme = useSelector(state => state.theme);
   const [searchText, setSearchText] = useState('');
 
-  const [comicData, setComicData] = useState({ data: 'data' });
+  const [comicData, setComicData] = useState({data: 'data'});
   const [favoritesList, setFavoritesList] = useState([]);
 
   const [loadingSearch, setLoadingSearch] = useState(false);
 
-  const { loading, error, data } = useFetch('comics', 'format=comic&');
+  const {loading, error, data} = useFetch('comics', 'format=comic&');
   useAppStarted();
 
   const getData = async key => {
     try {
       const jsonValue = await AsyncStorage.getItem(key);
-      return jsonValue != null ? JSON.parse(jsonValue) : [];
+      const jsonParse = jsonValue != null ? JSON.parse(jsonValue) : [];
+      setFavoritesList([...jsonParse]);
+      return jsonParse;
     } catch (e) {
       // error reading value
     }
@@ -42,7 +44,7 @@ const Home = () => {
   };
   const saveFavorite = async value => {
     const data = await getData('favoriteComics');
-    setFavoritesList(data);
+    setFavoritesList([...data, value]);
     const comicFavoriteIndex = data.findIndex(f => f.id === value.id);
     const isInFavorites = comicFavoriteIndex !== -1;
     if (isInFavorites) {
@@ -71,13 +73,13 @@ const Home = () => {
     if (searchText !== '') {
       console.log(searchText);
       fetchSearchData(searchText);
-
     }
   }, [searchText]);
 
   useEffect(() => {
+    getData('favoriteComics');
     if (data !== null) {
-      console.log("DATA", data)
+      console.log('DATA', data);
       setComicData(data.splice(50, 100));
     }
   }, [data]);
@@ -86,7 +88,7 @@ const Home = () => {
     temporaryText = text;
   };
   const handleGoDetail = item => {
-    navigation.navigate('ComicDetail', { comicData: item });
+    navigation.navigate('ComicDetail', {comicData: item});
     console.log('item = ', item);
   };
 
