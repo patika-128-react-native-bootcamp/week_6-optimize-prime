@@ -1,9 +1,9 @@
-import {StyleSheet, Dimensions} from 'react-native';
+import { StyleSheet, Dimensions } from 'react-native';
 import spacing from '../../styles/spacing';
 import radius from '../../styles/radius';
 import colors from '../../styles/colors';
 
-const {width, height} = Dimensions.get('window');
+const { width, height } = Dimensions.get('window');
 
 const baseStyles = StyleSheet.create({
   container: {
@@ -22,6 +22,12 @@ const baseStyles = StyleSheet.create({
     width: width * 0.7,
     fontFamily: 'Proxima Nova Semibold',
   },
+  buttonContainer: {
+    flexDirection: "row",
+    width: width * 0.16,
+    justifyContent: 'space-between',
+    alignItems: 'center'
+  }
 });
 export default {
   light: StyleSheet.create({

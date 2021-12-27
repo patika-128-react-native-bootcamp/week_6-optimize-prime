@@ -1,12 +1,12 @@
 import React from 'react';
-import {View, Text, TextInput} from 'react-native';
-import {TouchableOpacity} from 'react-native-gesture-handler';
+import { View, Text, TextInput } from 'react-native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import {useSelector} from 'react-redux';
+import { useSelector } from 'react-redux';
 import colors from '../../styles/colors';
 import styles from './SearchBar.style';
 
-const SearchBar = ({onSearch, ...otherProps}) => {
+const SearchBar = ({ onSearch, onClear, ...otherProps }) => {
   const theme = useSelector(state => state.theme);
   return (
     <View style={styles[theme].container}>
@@ -22,25 +22,28 @@ const SearchBar = ({onSearch, ...otherProps}) => {
           }
         />
       </View>
-      <Icon
-        name="close"
-        size={20}
-        color={
-          theme === 'light'
-            ? colors.light.primaryTextColor
-            : colors.dark.primaryTextColor
-        }
-      />
-      <Icon
-        name="magnify"
-        size={30}
-        onPress={onSearch}
-        color={
-          theme === 'light'
-            ? colors.light.primaryTextColor
-            : colors.dark.primaryTextColor
-        }
-      />
+      <View style={styles[theme].buttonContainer}>
+        <Icon
+          name="close"
+          size={20}
+          onPress={onClear}
+          color={
+            theme === 'light'
+              ? colors.light.primaryTextColor
+              : colors.dark.primaryTextColor
+          }
+        />
+        <Icon
+          name="magnify"
+          size={30}
+          onPress={onSearch}
+          color={
+            theme === 'light'
+              ? colors.light.primaryTextColor
+              : colors.dark.primaryTextColor
+          }
+        />
+      </View>
     </View>
   );
 };
