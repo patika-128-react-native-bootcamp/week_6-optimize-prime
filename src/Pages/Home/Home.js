@@ -20,9 +20,10 @@ const Home = () => {
   const [comicData, setComicData] = useState({data: 'data'});
   const [favoritesList, setFavoritesList] = useState([]);
 
-  const [loadingSearch, setLoadingSearch] = useState(false);
-
-  const {loading, error, data} = useFetch('comics', 'format=comic&');
+  const {loading, error, data, fetchData} = useFetch(
+    'comics',
+    `format=comic&${searchText}`,
+  );
   let temporaryText = '';
   useAppStarted();
 
@@ -55,26 +56,26 @@ const Home = () => {
     storeData('favoriteComics', [...data, value]);
   };
 
-  const fetchSearchData = async searchText => {
-    try {
-      setLoadingSearch(true);
-      const response = await axios.get(
-        `https://gateway.marvel.com/v1/public/comics?ts=1&limit=100&titleStartsWith=${searchText}&apikey=6a3ac4ee649fa8f44ed2beb0990b8e5e&hash=b1092a87a9512ddc94b1093992505c3a`,
-      );
-      setComicData(response.data.data.results);
-      setLoadingSearch(false);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  // const fetchSearchData = async searchText => {
+  //   try {
+  //     setLoadingSearch(true);
+  //     const response = await axios.get(
+  //       `https://gateway.marvel.com/v1/public/comics?ts=1&limit=100&titleStartsWith=${searchText}&apikey=6a3ac4ee649fa8f44ed2beb0990b8e5e&hash=b1092a87a9512ddc94b1093992505c3a`,
+  //     );
+  //     setComicData(response.data.data.results);
+  //     setLoadingSearch(false);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
   const handleSearch = () => {
     setSearchText(temporaryText);
   };
 
   useEffect(() => {
     if (searchText !== '') {
-      (searchText);
-      fetchSearchData(searchText);
+      searchText;
+      fetchData();
     }
   }, [searchText]);
 
@@ -86,7 +87,8 @@ const Home = () => {
   }, [data]);
 
   const getTextFromSearchInput = text => {
-    temporaryText = text;
+    temporaryText = `titleStartsWith=${text}&`;
+    console.log(temporaryText);
   };
   const handleGoDetail = item => {
     navigation.navigate(routes.COMIC_DETAIL, {comicData: item});
@@ -112,7 +114,6 @@ const Home = () => {
       onSearch={handleSearch}
       onSearchSubmit={handleSearch}
       onAddFavorites={handleAddFavorites}
-      loadingSearch={loadingSearch}
       favoritesList={favoritesList}
     />
   );
