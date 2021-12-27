@@ -2,11 +2,7 @@ import react, {useState, useEffect} from 'react';
 import axios from 'axios';
 
 import {BASE_URL} from '../../URL.json';
-import {AUTH, LIMIT, API_KEY} from '../../URL.json';
-
-const baseUrl = 'https://gateway.marvel.com/v1/public/';
-const authorization =
-  '?ts=1&apikey=6a3ac4ee649fa8f44ed2beb0990b8e5e&hash=b1092a87a9512ddc94b1093992505c3a';
+import {LIMIT, API_KEY} from '../../URL.json';
 
 const useFetch = (url, keyword = '') => {
   const [loading, setLoading] = useState(true);
