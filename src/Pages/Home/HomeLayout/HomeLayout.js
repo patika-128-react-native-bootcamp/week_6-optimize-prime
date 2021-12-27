@@ -1,6 +1,6 @@
 import React from 'react';
 import {View, FlatList, TextInput, Button, Text, StatusBar} from 'react-native';
-import { useTranslation } from "react-i18next";
+import {useTranslation} from 'react-i18next';
 import Loading from '../../../components/Loading';
 import SearchBar from '../../../components/SearchBar';
 import ThumbnailCard from '../../../components/ThumbnailCard';
@@ -16,9 +16,8 @@ const HomeLayout = ({
   onSearchSubmit,
   onAddFavorites,
   favoritesList,
-  loadingSearch,
 }) => {
-  const { t, i18n } = useTranslation();
+  const {t, i18n} = useTranslation();
   const renderComics = ({item}) => {
     const isFavorite =
       favoritesList.findIndex(find => {
@@ -37,7 +36,6 @@ const HomeLayout = ({
   };
 
   return (
-    
     <View style={styles[theme].container}>
       <StatusBar
         animated={true}
@@ -53,13 +51,9 @@ const HomeLayout = ({
         onChangeText={setText}
         onSearch={onSearch}
         onSubmitEditing={onSearchSubmit}
-        placeholder={t("Search")}
+        placeholder={t('Search')}
       />
-      {loadingSearch ? (
-        <Loading />
-      ) : (
-        <FlatList numColumns={2} data={comicData} renderItem={renderComics} />
-      )}
+      <FlatList numColumns={2} data={comicData} renderItem={renderComics} />
     </View>
   );
 };
