@@ -6,8 +6,30 @@ import colors from '../../styles/colors';
 
 const { width, height } = Dimensions.get('window');
 const baseStyles = StyleSheet.create({
-  inner_container: {
+  container: {
     alignItems: 'center',
+  },
+  goBackContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    position: 'absolute',
+    zIndex: 100,
+    backgroundColor: 'rgba(30, 30, 30, 0.5)',
+    width: width,
+    paddingLeft: spacing.tiny,
+    paddingVertical: spacing.normal,
+  },
+  arrow: {
+    fontSize: 40,
+    justifyContent: 'center',
+    alignItems: 'center',
+
+  },
+  backText: {
+    fontSize: 20,
+    fontFamily: 'Proxima Nova Semibold',
+    color: colors.textColor,
+
   },
   thumbnail: {
     width: width,
@@ -64,7 +86,7 @@ export default {
       color: colors.light.primaryTextColor
     },
 
-    inner_container: {
+    container: {
       ...baseStyles.inner_container,
       backgroundColor: colors.light.backgroundColor
     },
@@ -89,5 +111,10 @@ export default {
       ...baseStyles.description,
       color: colors.dark.primaryTextColor,
     },
+    arrow: {
+      ...baseStyles.arrow,
+
+    },
+
   }),
 };
