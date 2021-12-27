@@ -1,8 +1,8 @@
-import React, {useEffect, useState} from 'react';
-import {View, Text, StatusBar} from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { View, Text, StatusBar } from 'react-native';
 import useFetch from '../../hooks/useFetch/useFetch';
-import {useDispatch, useSelector} from 'react-redux';
-import {useNavigation} from '@react-navigation/native';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigation } from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import useAppStarted from '../../hooks/useAppStarted';
 import Search from '../../utils/Search';
@@ -17,10 +17,10 @@ const Home = () => {
   const theme = useSelector(state => state.theme);
   const [searchText, setSearchText] = useState('');
 
-  const [comicData, setComicData] = useState({data: 'data'});
+  const [comicData, setComicData] = useState({ data: 'data' });
   const [favoritesList, setFavoritesList] = useState([]);
 
-  const {loading, error, data, fetchData} = useFetch(
+  const { loading, error, data, fetchData } = useFetch(
     'comics',
     `format=comic&${searchText}`,
   );
@@ -71,12 +71,12 @@ const Home = () => {
   const handleSearch = () => {
     setSearchText(temporaryText);
   };
+  const handleClear = () => {
+    setSearchText("");
+  };
 
   useEffect(() => {
-    if (searchText !== '') {
-      searchText;
-      fetchData();
-    }
+    fetchData();
   }, [searchText]);
 
   useEffect(() => {
@@ -91,7 +91,7 @@ const Home = () => {
     console.log(temporaryText);
   };
   const handleGoDetail = item => {
-    navigation.navigate(routes.COMIC_DETAIL, {comicData: item});
+    navigation.navigate(routes.COMIC_DETAIL, { comicData: item });
   };
 
   const handleAddFavorites = comic => {
@@ -112,6 +112,7 @@ const Home = () => {
       onItemPress={handleGoDetail}
       theme={theme}
       onSearch={handleSearch}
+      onClear={handleClear}
       onSearchSubmit={handleSearch}
       onAddFavorites={handleAddFavorites}
       favoritesList={favoritesList}
