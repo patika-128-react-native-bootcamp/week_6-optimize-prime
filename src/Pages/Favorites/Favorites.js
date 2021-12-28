@@ -1,6 +1,6 @@
 import React, {useEffect, useState, useMemo} from 'react';
 import FavoritesLayout from './FavoritesLayout/FavoritesLayout';
-import {useSelector, useDispatch} from 'react-redux';
+import {useSelector} from 'react-redux';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {useNavigation} from '@react-navigation/native';
 import routes from '../../Navigation/routes';

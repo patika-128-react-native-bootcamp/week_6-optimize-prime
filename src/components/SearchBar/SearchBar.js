@@ -1,6 +1,5 @@
 import React from 'react';
 import {View, Text, TextInput} from 'react-native';
-import {TouchableOpacity} from 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {useSelector} from 'react-redux';
 import colors from '../../styles/colors';

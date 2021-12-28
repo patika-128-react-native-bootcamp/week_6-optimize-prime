@@ -1,6 +1,6 @@
-import React, {useEffect, useState, useMemo} from 'react';
+import React, {useEffect, useState} from 'react';
 import CharacterFavoritesLayout from './CharacterFavoritesLayout';
-import {useSelector, useDispatch} from 'react-redux';
+import {useSelector} from 'react-redux';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {useNavigation} from '@react-navigation/native';
 import routes from '../../Navigation/routes';

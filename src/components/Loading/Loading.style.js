@@ -1,7 +1,4 @@
 import { StyleSheet, Dimensions } from 'react-native';
-import spacing from '../../styles/spacing';
-import fontSize from '../../styles/fontSize';
-import radius from '../../styles/radius';
 import colors from '../../styles/colors';
 
 const { width, height } = Dimensions.get('window');

@@ -1,13 +1,10 @@
 import React, {useEffect, useState} from 'react';
-import {View, Text, StatusBar} from 'react-native';
 import useFetch from '../../hooks/useFetch/useFetch';
-import {useDispatch, useSelector} from 'react-redux';
+import {useSelector} from 'react-redux';
 import {useNavigation} from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import useAppStarted from '../../hooks/useAppStarted';
-import Search from '../../utils/Search';
 import HomeLayout from './HomeLayout';
-import axios from 'axios';
 import Loading from '../../components/Loading';
 import Error from '../../components/Error';
 import routes from '../../Navigation/routes';
