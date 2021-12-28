@@ -1,8 +1,8 @@
-import React, {useEffect, useState, useMemo} from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import FavoritesLayout from './FavoritesLayout/FavoritesLayout';
-import {useSelector, useDispatch} from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {useNavigation} from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 import routes from '../../Navigation/routes';
 
 const Favorites = () => {
@@ -44,12 +44,15 @@ const Favorites = () => {
   };
 
   useEffect(() => {
+    const unsubscribe = navigation.addListener('focus', () => {
+      getData('favoriteComics');
+    });
+    return unsubscribe;
+  }, [navigation]);
 
-    getData('favoriteComics');
-  }, []);
 
   const handleGoDetail = item => {
-    navigation.navigate(routes.COMIC_DETAIL, {comicData: item});
+    navigation.navigate(routes.COMIC_DETAIL, { comicData: item });
   };
   const handleRemoveFavorites = comic => {
     saveFavorite(comic);

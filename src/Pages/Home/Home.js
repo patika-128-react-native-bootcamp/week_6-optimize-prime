@@ -55,7 +55,7 @@ const Home = () => {
     }
     storeData('favoriteComics', [...data, value]);
   };
-  
+
   const handleSearch = () => {
     setSearchText(temporaryText);
   };
@@ -73,6 +73,16 @@ const Home = () => {
       setComicData(data.splice(50, 100));
     }
   }, [data]);
+
+  useEffect(() => {
+    const unsubscribe = navigation.addListener('focus', () => {
+      getData('favoriteComics');
+      if (data !== null) {
+        setComicData(data.splice(50, 100));
+      }
+    });
+    return unsubscribe;
+  }, [navigation]);
 
   const getTextFromSearchInput = text => {
     temporaryText = `titleStartsWith=${text}&`;

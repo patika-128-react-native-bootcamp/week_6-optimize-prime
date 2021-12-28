@@ -58,6 +58,13 @@ const Characters = props => {
     }
   }, [data]);
 
+  useEffect(() => {
+    const unsubscribe = navigation.addListener('focus', () => {
+      getData('favoriteCharacters');
+    });
+    return unsubscribe;
+  }, [navigation]);
+
   const getTextFromSearchInput = text => {
     temporaryText = `nameStartsWith=${text}&`;
   };
