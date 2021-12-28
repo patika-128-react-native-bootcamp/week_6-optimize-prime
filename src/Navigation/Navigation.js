@@ -64,14 +64,14 @@ const Navigation = () => {
           component={FavoriteTab}
           options={{
             tabBarLabel: t("Favorites"),
-            unmountOnBlur: true,
+            // unmountOnBlur: true,
             tabBarIcon: ({ focused, color, size }) => {
               return <Icon name="star" size={size} color={color} />;
             },
           }}
-          listeners={({ navigation }) => ({
-            blur: () => navigation.setParams({ screen: undefined }),
-          })}
+          // listeners={({ navigation }) => ({
+          //   blur: () => navigation.setParams({ screen: undefined }),
+          // })}
         />
         <Tab.Screen
           name={routes.SETTINGS}
