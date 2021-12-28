@@ -38,6 +38,7 @@ const ComicDetailLayout = ({ comicData, charactersData, onCharacterPress }) => {
         thumbnail={item.thumbnail.path}
         title={item.name}
         onThumbnailCardPress={() => onCharacterPress(item)}
+        onPress={() => {}}
       />
     );
   };

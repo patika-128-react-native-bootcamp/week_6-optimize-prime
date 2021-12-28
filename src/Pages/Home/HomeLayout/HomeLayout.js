@@ -15,6 +15,7 @@ const HomeLayout = ({
   onSearch,
   onSearchSubmit,
   onAddFavorites,
+  onClear,
   favoritesList,
 }) => {
   const {t, i18n} = useTranslation();
@@ -52,6 +53,7 @@ const HomeLayout = ({
         onSearch={onSearch}
         onSubmitEditing={onSearchSubmit}
         placeholder={t('Search')}
+        onClear={onClear}
       />
       <FlatList numColumns={2} data={comicData} renderItem={renderComics} />
     </View>

@@ -15,7 +15,7 @@ const Characters = props => {
   const [searchText, setSearchText] = useState('');
   const [favoritesList, setFavoritesList] = useState([]);
   const [charactersData, setCharactersData] = useState({data: 'data'});
-  
+
   const {loading, error, data, fetchData} = useFetch(
     'characters',
     `${searchText}`,
@@ -64,10 +64,11 @@ const Characters = props => {
   const handleSearch = () => {
     setSearchText(temporaryText);
   };
+  const handleClear = () => {
+    setSearchText('');
+  };
   useEffect(() => {
-    if (searchText !== '') {
-      fetchData();
-    }
+    fetchData();
   }, [searchText]);
 
   const handleGoCharacterDetail = item => {
@@ -94,6 +95,7 @@ const Characters = props => {
       onAddFavorites={handleAddFavorites}
       favoritesList={favoritesList}
       theme={theme}
+      onClear={handleClear}
     />
   );
 };

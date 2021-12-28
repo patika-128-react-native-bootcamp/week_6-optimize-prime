@@ -87,7 +87,7 @@ export default {
     },
 
     container: {
-      ...baseStyles.inner_container,
+      ...baseStyles.container,
       backgroundColor: colors.light.backgroundColor
     },
     description: {
@@ -103,8 +103,8 @@ export default {
     },
 
 
-    inner_container: {
-      ...baseStyles.inner_container,
+    container: {
+      ...baseStyles.container,
       backgroundColor: colors.dark.backgroundColor
     },
     description: {

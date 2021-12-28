@@ -10,6 +10,7 @@ const CharactersLayout = ({
   charactersData,
   setText,
   onSearch,
+  onClear,
   onCharacterPress,
   onAddFavorites,
   onSearchSubmit,
@@ -39,6 +40,7 @@ const CharactersLayout = ({
         onSearch={onSearch}
         onSubmitEditing={onSearchSubmit}
         placeholder={t('Search')}
+        onClear={onClear}
       />
       <FlatList
         numColumns={2}
