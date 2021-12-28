@@ -23,7 +23,7 @@ const CharacterDetail = props => {
     }
   }, [data]);
   const handleGoComic = item => {
-    navigation.navigate(routes.COMIC_DETAIL, {comicData: item});
+    navigation.push(routes.COMIC_DETAIL, {comicData: item});
   };
   if (loading) {
     return <Loading />;

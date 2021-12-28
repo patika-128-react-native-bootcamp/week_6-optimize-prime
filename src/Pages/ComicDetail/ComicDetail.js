@@ -22,7 +22,7 @@ const ComicDetail = props => {
     }
   }, [data]);
   const handleGoCharacter= (item) => {
-    navigation.navigate(routes.CHARACTER_DETAIL_PAGE, {characterData: item});
+    navigation.push(routes.CHARACTER_DETAIL_PAGE, {characterData: item});
   }
   if(loading){
     return <Loading/>
