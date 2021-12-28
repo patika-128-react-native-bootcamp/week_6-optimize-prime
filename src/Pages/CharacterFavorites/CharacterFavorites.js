@@ -16,17 +16,13 @@ const CharacterFavorites = () => {
       const value = jsonValue != null ? JSON.parse(jsonValue) : [];
       setFavoriteData(value);
       return value;
-    } catch (e) {
-      // error reading value
-    }
+    } catch (e) {}
   };
   const storeData = async (key, value) => {
     try {
       const jsonValue = JSON.stringify(value);
       await AsyncStorage.setItem(key, jsonValue);
-    } catch (e) {
-      // saving error
-    }
+    } catch (e) {}
   };
 
   const saveFavorite = async value => {
@@ -44,10 +40,14 @@ const CharacterFavorites = () => {
   };
 
   useEffect(() => {
-    console.log('favorites');
-
     getData('favoriteCharacters');
   }, []);
+  useEffect(() => {
+    const unsubscribe = navigation.addListener('focus', () => {
+      getData('favoriteCharacters');
+    });
+    return unsubscribe;
+  }, [navigation]);
 
   const handleGoDetail = item => {
     navigation.navigate(routes.CHARACTER_DETAIL_PAGE, {characterData: item});

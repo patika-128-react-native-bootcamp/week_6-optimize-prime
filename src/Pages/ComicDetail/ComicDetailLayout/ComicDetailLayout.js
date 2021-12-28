@@ -7,19 +7,18 @@ import {
   FlatList,
   ImageBackground,
 } from 'react-native';
-import { useSelector } from 'react-redux';
-import { useTranslation } from "react-i18next";
+import {useSelector} from 'react-redux';
+import {useTranslation} from 'react-i18next';
 import styles from './ComicDetailLayout.style';
 import ThumbnailCard from '../../../components/ThumbnailCard';
 import DetailCard from '../../../components/DetailCard';
 
-const ComicDetailLayout = ({ comicData, charactersData, onCharacterPress }) => {
+const ComicDetailLayout = ({comicData, charactersData, onCharacterPress}) => {
   const thumbnailSize = '.jpg';
-  console.log(`${comicData.thumbnail.path}${thumbnailSize}`);
   const theme = useSelector(state => state.theme);
 
   const flatListHeader = () => {
-    const { t, i18n } = useTranslation();
+    const {t, i18n} = useTranslation();
     return (
       <DetailCard
         thumbnail={comicData.thumbnail.path}
@@ -32,14 +31,14 @@ const ComicDetailLayout = ({ comicData, charactersData, onCharacterPress }) => {
     );
   };
 
-  const renderCharacters = ({ item }) => {
+  const renderCharacters = ({item}) => {
     return (
       <ThumbnailCard
         thumbnail={item.thumbnail.path}
         title={item.name}
         onThumbnailCardPress={() => onCharacterPress(item)}
-        onPress={() => { }}
-        iconColor={"none"}
+        onPress={() => {}}
+        iconColor={'none'}
       />
     );
   };

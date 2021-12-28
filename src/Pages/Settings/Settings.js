@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import { View, Text, Appearance } from 'react-native';
-import { useTranslation } from 'react-i18next';
-import { useDispatch, useSelector } from 'react-redux';
+import React, {useEffect, useState} from 'react';
+import {View, Text, Appearance} from 'react-native';
+import {useTranslation} from 'react-i18next';
+import {useDispatch, useSelector} from 'react-redux';
 import SwitchSelector from 'react-native-switch-selector';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import styles from './Settings.style';
@@ -10,76 +10,69 @@ import colors from '../../styles/colors';
 const storeData = async (key, value) => {
   try {
     await AsyncStorage.setItem(key, value);
-  } catch (e) {
-    // saving error
-  }
+  } catch (e) {}
 };
 
 const Settings = () => {
-  const dispatch = useDispatch()
-  const { t, i18n } = useTranslation();
-  const [chosenLang, setChosenLang] = useState(0)
-  const [initialLang, setInitialLang] = useState()
-  const [chosenTheme, setChosenTheme] = useState(0)
-  const [initialTheme, setInitialTheme] = useState()
+  const dispatch = useDispatch();
+  const {t, i18n} = useTranslation();
+  const [chosenLang, setChosenLang] = useState(0);
+  const [initialLang, setInitialLang] = useState();
+  const [chosenTheme, setChosenTheme] = useState(0);
+  const [initialTheme, setInitialTheme] = useState();
   const theme = useSelector(state => state.theme);
 
   const langOptions = [
-    { label: 'English', value: 'en' },
-    { label: 'Deutsch', value: 'de' },
-    { label: 'Spanish', value: 'es' },
+    {label: 'English', value: 'en'},
+    {label: 'Deutsch', value: 'de'},
+    {label: 'Spanish', value: 'es'},
   ];
   const themeOptions = [
-    { label: t('Light'), value: 'light' },
-    { label: t('Dark'), value: 'dark' },
-    { label: t('Automatic'), value: 'automatic' },
+    {label: t('Light'), value: 'light'},
+    {label: t('Dark'), value: 'dark'},
+    {label: t('Automatic'), value: 'automatic'},
   ];
 
-   useEffect(() => {
-    getData("languages", "theme")
-  }, [])
+  useEffect(() => {
+    getData('languages', 'theme');
+  }, []);
 
   useEffect(() => {
-    if (initialLang === "en") {
-      setChosenLang(0)
-    } if (initialLang === "de") {
-      setChosenLang(1)
-    } if (initialLang === "es") {
-      setChosenLang(2)
+    if (initialLang === 'en') {
+      setChosenLang(0);
     }
-
-  }, [initialLang])
+    if (initialLang === 'de') {
+      setChosenLang(1);
+    }
+    if (initialLang === 'es') {
+      setChosenLang(2);
+    }
+  }, [initialLang]);
 
   useEffect(() => {
-    if (initialTheme === "light") {
-      setChosenTheme(0)
-    } if (initialTheme === "dark") {
-      setChosenTheme(1)
-    } if (initialTheme === "automatic") {
-      setChosenTheme(2)
+    if (initialTheme === 'light') {
+      setChosenTheme(0);
     }
-
-  }, [initialTheme])
+    if (initialTheme === 'dark') {
+      setChosenTheme(1);
+    }
+    if (initialTheme === 'automatic') {
+      setChosenTheme(2);
+    }
+  }, [initialTheme]);
 
   const getData = async (langKey, themeKey) => {
     try {
       const langValue = await AsyncStorage.getItem(langKey);
       const themeValue = await AsyncStorage.getItem(themeKey);
 
-     
       if (langValue !== null) {
-        setInitialLang(langValue)
+        setInitialLang(langValue);
       }
       if (themeValue !== null) {
-        setInitialTheme(themeValue)
+        setInitialTheme(themeValue);
       }
-      console.log("themeValue", chosenTheme)
-
-
-
-    } catch (e) {
-      // error reading value
-    }
+    } catch (e) {}
   };
 
   return (
@@ -96,7 +89,7 @@ const Settings = () => {
           backgroundColor={colors[theme].secondaryBackgroundColor}
           onPress={languages => {
             i18n.changeLanguage(languages);
-            storeData("languages", languages);
+            storeData('languages', languages);
           }}
         />
       </View>
@@ -113,12 +106,12 @@ const Settings = () => {
           onPress={value => {
             storeData('theme', value);
             if (value != 'automatic') {
-              dispatch({ type: 'CHANGE_APP_THEME', payload: { theme: value } });
+              dispatch({type: 'CHANGE_APP_THEME', payload: {theme: value}});
               return;
             }
             dispatch({
               type: 'CHANGE_APP_THEME',
-              payload: { theme: Appearance.getColorScheme() },
+              payload: {theme: Appearance.getColorScheme()},
             });
           }}
         />

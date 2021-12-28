@@ -17,7 +17,6 @@ const ComicDetail = props => {
   const [charactersData, setCharactersData] = useState([]);
   useEffect(() => {
     if (data !== null) {
-      console.log(data);
       setCharactersData(data);
     }
   }, [data]);

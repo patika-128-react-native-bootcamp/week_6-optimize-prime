@@ -1,8 +1,8 @@
-import React, { useEffect, useState, useMemo } from 'react';
+import React, {useEffect, useState, useMemo} from 'react';
 import FavoritesLayout from './FavoritesLayout/FavoritesLayout';
-import { useSelector, useDispatch } from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { useNavigation } from '@react-navigation/native';
+import {useNavigation} from '@react-navigation/native';
 import routes from '../../Navigation/routes';
 
 const Favorites = () => {
@@ -16,17 +16,13 @@ const Favorites = () => {
       const value = jsonValue != null ? JSON.parse(jsonValue) : [];
       setFavoriteData(value);
       return value;
-    } catch (e) {
-      // error reading value
-    }
+    } catch (e) {}
   };
   const storeData = async (key, value) => {
     try {
       const jsonValue = JSON.stringify(value);
       await AsyncStorage.setItem(key, jsonValue);
-    } catch (e) {
-      // saving error
-    }
+    } catch (e) {}
   };
 
   const saveFavorite = async value => {
@@ -50,9 +46,8 @@ const Favorites = () => {
     return unsubscribe;
   }, [navigation]);
 
-
   const handleGoDetail = item => {
-    navigation.navigate(routes.COMIC_DETAIL, { comicData: item });
+    navigation.navigate(routes.COMIC_DETAIL, {comicData: item});
   };
   const handleRemoveFavorites = comic => {
     saveFavorite(comic);

@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import { View, Text, StatusBar } from 'react-native';
+import React, {useEffect, useState} from 'react';
+import {View, Text, StatusBar} from 'react-native';
 import useFetch from '../../hooks/useFetch/useFetch';
-import { useDispatch, useSelector } from 'react-redux';
-import { useNavigation } from '@react-navigation/native';
+import {useDispatch, useSelector} from 'react-redux';
+import {useNavigation} from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import useAppStarted from '../../hooks/useAppStarted';
 import Search from '../../utils/Search';
@@ -17,10 +17,10 @@ const Home = () => {
   const theme = useSelector(state => state.theme);
   const [searchText, setSearchText] = useState('');
 
-  const [comicData, setComicData] = useState({ data: 'data' });
+  const [comicData, setComicData] = useState({data: 'data'});
   const [favoritesList, setFavoritesList] = useState([]);
 
-  const { loading, error, data, fetchData } = useFetch(
+  const {loading, error, data, fetchData} = useFetch(
     'comics',
     `format=comic&${searchText}`,
   );
@@ -33,17 +33,13 @@ const Home = () => {
       const jsonParse = jsonValue != null ? JSON.parse(jsonValue) : [];
       setFavoritesList([...jsonParse]);
       return jsonParse;
-    } catch (e) {
-      // error reading value
-    }
+    } catch (e) {}
   };
   const storeData = async (key, value) => {
     try {
       const jsonValue = JSON.stringify(value);
       await AsyncStorage.setItem(key, jsonValue);
-    } catch (e) {
-      // saving error
-    }
+    } catch (e) {}
   };
   const saveFavorite = async value => {
     const data = await getData('favoriteComics');
@@ -60,7 +56,7 @@ const Home = () => {
     setSearchText(temporaryText);
   };
   const handleClear = () => {
-    setSearchText("");
+    setSearchText('');
   };
 
   useEffect(() => {
@@ -86,10 +82,9 @@ const Home = () => {
 
   const getTextFromSearchInput = text => {
     temporaryText = `titleStartsWith=${text}&`;
-    console.log(temporaryText);
   };
   const handleGoDetail = item => {
-    navigation.navigate(routes.COMIC_DETAIL, { comicData: item });
+    navigation.navigate(routes.COMIC_DETAIL, {comicData: item});
   };
 
   const handleAddFavorites = comic => {
