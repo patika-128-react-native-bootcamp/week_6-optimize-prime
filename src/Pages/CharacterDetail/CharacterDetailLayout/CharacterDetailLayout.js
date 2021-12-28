@@ -29,8 +29,8 @@ const CharacterDetailLayout = ({characterData, comicsData, onComicPress}) => {
         thumbnail={item.thumbnail.path}
         title={item.title}
         onThumbnailCardPress={() => onComicPress(item)}
-        onPress={() => {}}
-      />
+        iconColor={"none"}
+        />
     );
   };
 

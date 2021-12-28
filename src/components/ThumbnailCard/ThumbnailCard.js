@@ -26,9 +26,10 @@ const ThumbnailCard = ({
     <TouchableWithoutFeedback onPress={onThumbnailCardPress}>
       <View style={styles[theme].container}>
         <View style={styles[theme].inner_container}>
-          <View style={styles[theme].favContainer}>
-            <Icon name="star" size={37} color={colorChange} onPress={handleChange} />
-          </View>
+          {iconColor !== "none" ? <View style={styles[theme].favContainer}>
+            <Icon name="star" size={37} color={iconColor} onPress={handleChange} />
+          </View> :
+            <View></View>}
           <Image
             style={styles[theme].thumbnail}
             source={{ uri: `${thumbnail}${thumbnailSize}` }}
