@@ -1,5 +1,7 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import { View, StatusBar } from 'react-native';
+import Provider from './context/Provider';
+import Navigation from './Navigation';
 
 /**
  * Selamlar. Bu ödevde sizden Marvel API'nı kullanarak bir uygulama yapmanız isteniyor.
@@ -20,8 +22,15 @@ import {View, Text} from 'react-native';
 
 export default function App() {
   return (
-    <View>
-      <Text>{/* code is here... */}</Text>
+    <Provider>
+
+    <View style={{ flex: 1 }}>
+      <Navigation />
+      {/* <StatusBar
+        animated={true}
+        backgroundColor="red"
+        translucent={true} /> */}
     </View>
+        </Provider>
   );
 }
